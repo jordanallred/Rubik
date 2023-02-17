@@ -15,4 +15,4 @@ class RotateTest(TestCase):
         
         self.assertIn('status', result)
         self.assertEqual('ok', result['status'])
-        self.assertEqual(encodedCube, result.get('cube'))
+        self.assertEqual(startCube, result.get('cube'))
