@@ -16,7 +16,9 @@ class Cube:
         if not encodedCube.isalnum():
             raise ValueError("Palette values must be alphanumeric.")
             
-        
+        if len(encodedCube) != 54:
+            raise ValueError("Cube must have exactly 54 palette values.")
+            
         self.cube = encodedCube
         
     def rotate(self, directions):
