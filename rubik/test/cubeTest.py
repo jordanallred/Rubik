@@ -16,6 +16,10 @@ class Test(unittest.TestCase):
         with self.assertRaises(ValueError):
             Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyy:::::::::")
             
-    def test101_validLength(self):
+    def test102_validLength(self):
         with self.assertRaises(ValueError):
             Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwww")
+    
+    def test103_notNull(self):
+        with self.assertRaises(ValueError):
+            Cube(None)
