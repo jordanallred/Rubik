@@ -20,7 +20,7 @@ class Test(unittest.TestCase):
         with self.assertRaises(ValueError):
             Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwww")
     
-    def test103_dataType(self):
+    def test103_validDataType(self):
         with self.assertRaises(ValueError):
             Cube(None)
         with self.assertRaises(ValueError):
@@ -31,3 +31,8 @@ class Test(unittest.TestCase):
             Cube([])
         with self.assertRaises(ValueError):
             Cube({})
+    
+    def test104_uniqueCenters(self):
+        with self.assertRaises(ValueError):
+            Cube("bbbbbbbbbrrrrbrrrroooobooooggggbggggyyyybyyyywwwwbwwww")
+    
