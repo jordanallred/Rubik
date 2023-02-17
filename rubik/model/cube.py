@@ -31,7 +31,9 @@ class Cube:
         self.cube = encodedCube
         
     def rotate(self, directions):
-        pass
+        validDirections = {'F', 'f', 'B', 'b', 'L', 'l', 'R', 'r', 'U', 'u'}
+        if len(set(directions).difference(validDirections)) > 0:
+            raise ValueError("Input contains invalid rotation direction.")
     
     def get(self):
         return self.cube
