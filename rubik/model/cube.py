@@ -38,7 +38,6 @@ class Cube:
         if len(directions):
             directions = "F"
         
-        
     
     def get(self):
         return self.cube

@@ -41,3 +41,39 @@ class Test(unittest.TestCase):
             test.rotate('Dd')
         test.rotate('')
         test.rotate('FfRrBbLlUu')
+    
+    def test106_rotateFrontClockwise(self):
+        encodedCube = "bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww"
+        test = Cube(encodedCube)
+        test.rotate("F")
+        self.assertEqual(test.get(), encodedCube)
+        
+    def test107_rotateFrontCounterclockwise(self):
+        pass
+    
+    def test108_rotateBackClockwise(self):
+        pass
+
+    def test109_rotateBackCounterclockwise(self):
+        pass
+
+    def test110_rotateLeftClockwise(self):
+        pass
+    
+    def test111_rotateLeftCounterclockwise(self):
+        pass
+    
+    def test112_rotateRightClockwise(self):
+        pass
+    
+    def test113_rotateRightCounterclockwise(self):
+        pass
+    
+    def test114_rotateUpClockwise(self):
+        pass
+    
+    def test115_rotateUpCounterclockwise(self):
+        pass    
+    
+    def test116_rotateDefault(self):
+        pass
