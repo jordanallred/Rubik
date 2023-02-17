@@ -6,6 +6,8 @@ class Cube:
     '''
 
     def __init__(self, encodedCube):
+        if type(encodedCube) is not str:
+            raise ValueError("Cube must not be of type String")
         uniqueColors = []
         for color in encodedCube:
             if color not in uniqueColors:
