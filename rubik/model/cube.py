@@ -35,7 +35,7 @@ class Cube:
         if len(set(directions).difference(validDirections)) > 0:
             raise ValueError("Input contains invalid rotation direction.")
         
-        if directions.isEmpty():
+        if len(directions):
             directions = "F"
         
         
