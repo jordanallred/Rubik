@@ -46,7 +46,7 @@ class Test(unittest.TestCase):
         encodedCube = "bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww"
         test = Cube(encodedCube)
         test.rotate("F")
-        self.assertEqual(test.get(), encodedCube)
+        self.assertNotEqual(test.get(), encodedCube)
         
     def test107_rotateFrontCounterclockwise(self):
         pass
