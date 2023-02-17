@@ -34,6 +34,11 @@ class Cube:
         validDirections = {'F', 'f', 'B', 'b', 'L', 'l', 'R', 'r', 'U', 'u'}
         if len(set(directions).difference(validDirections)) > 0:
             raise ValueError("Input contains invalid rotation direction.")
+        
+        if directions.isEmpty():
+            directions = "F"
+        
+        
     
     def get(self):
         return self.cube
