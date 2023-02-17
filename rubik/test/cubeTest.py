@@ -11,5 +11,5 @@ class Test(unittest.TestCase):
 
 
     def test100_validColorQuantity(self):
-        self.assertRaises(ValueError, Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwwx")
+        self.assertRaises(ValueError, Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwwx"))
         
