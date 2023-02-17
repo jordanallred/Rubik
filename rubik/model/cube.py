@@ -12,6 +12,11 @@ class Cube:
                 uniqueColors.append(color)
         if len(uniqueColors) != 6:
             raise ValueError("Number of unique colors must be six.")
+        
+        if not encodedCube.isalnum():
+            raise ValueError("Palette values must be alphanumeric.")
+            
+        
         self.cube = encodedCube
         
     def rotate(self, directions):
