@@ -43,7 +43,7 @@ class Test(unittest.TestCase):
         test.rotate('FfRrBbLlUu')
     
     def test106_rotateFrontClockwise(self):
-        test = Cube("bbbbbbbbbyrryrryrroooooooooggwggwggwyyyyyygggrrrwwwwww")
+        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
         test.rotate("F")
         self.assertEquals(test.get(), "bbbbbbbbbyrryrryrroooooooooggwggwggwyyyyyygggrrrwwwwww")
         
