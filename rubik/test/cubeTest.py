@@ -20,6 +20,14 @@ class Test(unittest.TestCase):
         with self.assertRaises(ValueError):
             Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwww")
     
-    def test103_notNull(self):
+    def test103_dataType(self):
         with self.assertRaises(ValueError):
             Cube(None)
+        with self.assertRaises(ValueError):
+            Cube(0.2)
+        with self.assertRaises(ValueError):
+            Cube(1)
+        with self.assertRaises(ValueError):
+            Cube([])
+        with self.assertRaises(ValueError):
+            Cube({})
