@@ -20,7 +20,14 @@ class Cube:
             
         if len(encodedCube) != 54:
             raise ValueError("Cube must have exactly 54 palette values.")
-            
+        
+        if encodedCube[4] == encodedCube[13] or encodedCube[4] == encodedCube[22] or encodedCube[4] == encodedCube[31] or encodedCube[4] == encodedCube[40] or encodedCube[4] == encodedCube[49] \
+        or encodedCube[13] == encodedCube[22] or encodedCube[13] == encodedCube[31] or encodedCube[13] == encodedCube[40] or encodedCube[13] == encodedCube[49] \
+        or encodedCube[22] == encodedCube[31] or encodedCube[22] == encodedCube[40] or encodedCube[22] == encodedCube[49] \
+        or encodedCube[31] == encodedCube[40] or encodedCube[22] == encodedCube[49] \
+        or encodedCube[40] == encodedCube[49]:
+            raise ValueError("Cube must have unique centers.")
+        
         self.cube = encodedCube
         
     def rotate(self, directions):
