@@ -38,4 +38,6 @@ class Test(unittest.TestCase):
     def test105_validDirections(self):
         test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
         with self.assertRaises(ValueError):
-            test.rotate('')
+            test.rotate('Dd')
+        test.rotate('')
+        test.rotate('FfRrBbLlUu')
