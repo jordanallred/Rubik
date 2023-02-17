@@ -3,8 +3,6 @@ from rubik.model.cube import Cube
 def rotate(parms):
     """Return rotated cube""" 
     result = {}
-    # cube must be alphanumeric of 54 characters with unique 6 unique colors and unique centers
-    # stub code
     encodedCube = parms.get('cube')
     theCube = Cube(encodedCube)
     

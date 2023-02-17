@@ -6,7 +6,6 @@ Created on Feb 17, 2023
 import unittest
 from rubik.model.cube import Cube
 
-
 class Test(unittest.TestCase):
     def test100_validColorQuantity(self):
         with self.assertRaises(ValueError):
@@ -36,3 +35,7 @@ class Test(unittest.TestCase):
         with self.assertRaises(ValueError):
             Cube("bbbbbbbbbrrrrbrrrroooobooooggggbggggyyyybyyyywwwwbwwww")
     
+    def test105_validDirections(self):
+        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwwx")
+        with self.assertRaises(ValueError):
+            test.rotate('')
