@@ -14,4 +14,4 @@ class Test(unittest.TestCase):
     
     def test101_validAlpha(self):
         with self.assertRaises(ValueError):
-            Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwww:")        
+            Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyy:::::::::")        
