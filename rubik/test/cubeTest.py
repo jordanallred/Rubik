@@ -46,12 +46,6 @@ class Test(unittest.TestCase):
         test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
         test.rotate("F")
         self.assertEquals(test.get(), "bbbbbbbbbyrryrryrroooooooooggwggwggwyyyyyygggrrrwwwwww")
-        self.assertEqual(test.get().count('b'), 9)
-        self.assertEqual(test.get().count('r'), 9)
-        self.assertEqual(test.get().count('o'), 9)
-        self.assertEqual(test.get().count('g'), 9)
-        self.assertEqual(test.get().count('y'), 9)
-        self.assertEqual(test.get().count('w'), 9)
         
     def test107_rotateFrontCounterclockwise(self):
         test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
@@ -62,6 +56,13 @@ class Test(unittest.TestCase):
         test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
         test.rotate("B")
         self.assertEquals(test.get(), "bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        self.assertEqual(test.get().count('b'), 9)
+        self.assertEqual(test.get().count('r'), 9)
+        self.assertEqual(test.get().count('o'), 9)
+        self.assertEqual(test.get().count('g'), 9)
+        self.assertEqual(test.get().count('y'), 9)
+        self.assertEqual(test.get().count('w'), 9)
+
 
     def test109_rotateBackCounterclockwise(self):
         test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
