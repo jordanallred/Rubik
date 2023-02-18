@@ -3,6 +3,10 @@ from rubik.model.cube import Cube
 def rotate(parms):
     result = {}
     
+    if len(parms) != 2:
+        raise ValueError("Request has too many parameters - should only have 'dir' and 'cube'")
+
+    
     try:
         encodedCube = parms.get('cube')
         theCube = Cube(encodedCube)
