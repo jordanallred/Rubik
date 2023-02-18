@@ -6,6 +6,9 @@ def rotate(parms):
     if len(parms) != 2:
         raise ValueError("Request has too many parameters - should only have 'dir' and 'cube'")
 
+    if 'dir' not in parms:
+        raise ValueError("Request does not contain parameter 'dir'")
+    
     
     try:
         encodedCube = parms.get('cube')
