@@ -39,3 +39,13 @@ class RotateTest(TestCase):
         with self.assertRaises(ValueError):
             rotate(parms)
             
+    def test102_paramDir(self):
+        startCube = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
+        parms = {}
+        
+        parms['cube'] = startCube
+        parms['direction'] = 'F'
+        
+        with self.assertRaises(ValueError):
+            rotate(parms)
+            
