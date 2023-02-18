@@ -152,6 +152,36 @@ class Cube:
     
     def _rotateBackClockwise(self):
         encodedCube = ""
+        
+        for i in range(19):
+            match i:
+                case 11:
+                    encodedCube += self.cube[53]
+                case 14:
+                    encodedCube += self.cube[52]
+                case 17:
+                    encodedCube += self.cube[51]
+                case 36:
+                    encodedCube += self.cube[11]
+                case 37:
+                    encodedCube += self.cube[14]
+                case 38:
+                    encodedCube += self.cube[17]
+                case 33:
+                    encodedCube += self.cube[36]
+                case 30:
+                    encodedCube += self.cube[37]
+                case 27:
+                    encodedCube += self.cube[38]
+                case 53:
+                    encodedCube += self.cube[33]
+                case 52:
+                    encodedCube += self.cube[30]
+                case 51:
+                    encodedCube += self.cube[27]
+                case _:
+                    encodedCube += self.cube[i]
+                    
         newFace = ""
         faceList = [[self.cube[19:22]], [self.cube[22:25]], [self.cube[25:28]]]
         faceList = rot90(faceList, 3)
@@ -161,7 +191,7 @@ class Cube:
         
         encodedCube += newFace
         
-        for i in range(9, 54):
+        for i in range(28, 54):
             match i:
                 case 11:
                     encodedCube += self.cube[53]
