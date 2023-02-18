@@ -579,7 +579,11 @@ class Cube:
         encodedCube = ""
         
         for i in range(36):
-            encodedCube += self.cube[(i + 9) % 36]                  
+            if i % 9 < 3:
+                encodedCube += self.cube[(i + 9) % 36]    
+            else:
+                encodedCube += self.cube[i]              
+
         newFace = ""
         faceList = [[self.cube[36:39]], [self.cube[39:42]], [self.cube[42:45]]]
         faceList = rot90(faceList, 3)
@@ -590,14 +594,21 @@ class Cube:
         encodedCube += newFace
         
         for i in range(45, 54):
-            encodedCube += self.cube[(i + 9) % 36]                  
+            if i % 9 < 3:
+                encodedCube += self.cube[(i + 9) % 36]    
+            else:
+                encodedCube += self.cube[i]              
         self.cube = encodedCube
     
     def _rotateUpCounterclockwise(self):
         encodedCube = ""
         
         for i in range(36):
-            encodedCube += self.cube[(i + 27) % 36]                  
+            if i % 9 < 3:
+                encodedCube += self.cube[(i + 27) % 36]    
+            else:
+                encodedCube += self.cube[i]              
+
         newFace = ""
         faceList = [[self.cube[36:39]], [self.cube[39:42]], [self.cube[42:45]]]
         faceList = rot90(faceList)
@@ -608,5 +619,8 @@ class Cube:
         encodedCube += newFace
         
         for i in range(45, 54):
-            encodedCube += self.cube[(i + 27) % 36]                  
+            if i % 9 < 3:
+                encodedCube += self.cube[(i + 27) % 36]    
+            else:
+                encodedCube += self.cube[i]              
         self.cube = encodedCube
