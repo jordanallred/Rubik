@@ -36,11 +36,10 @@ class Cube:
         if len(set(directions).difference(validDirections)) > 0:
             raise ValueError("Input contains invalid rotation direction.")
         
-        if len(directions):
+        if len(directions) == 0:
             directions = "F"
         
         while len(directions) > 0:
-            print("TEST: " + directions)
             if directions[0] == 'F':
                 self._rotateFrontClockwise()
             elif directions[0] == 'f':
