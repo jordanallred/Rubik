@@ -71,6 +71,7 @@ class Cube:
         encodedCube = ""
         newFace = ""
         faceList = [[self.cube[0], self.cube[1], self.cube[2]], [self.cube[3], self.cube[4], self.cube[5]], [self.cube[6], self.cube[7], self.cube[8]]]
+        faceList = rot90(faceList, 3)
         for row in faceList:
             for item in row:
                 newFace += item
