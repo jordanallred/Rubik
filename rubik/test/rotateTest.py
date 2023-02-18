@@ -5,7 +5,7 @@ class RotateTest(TestCase):
         
 # Happy path
 #    Test that the stubbed rotate returns the correct result
-    def test100_rotateDefault(self):
+    def test100_sampleRotate(self):
         startCube = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
         parms = {}
         parms['cube'] = startCube
@@ -15,4 +15,4 @@ class RotateTest(TestCase):
         
         self.assertIn('status', result)
         self.assertEqual('ok', result['status'])
-        self.assertEqual(startCube, result.get('cube'))
+        self.assertEqual('bbbbbbbbbyrryrryrroooooooooggwggwggwyyyyyygggrrrwwwwww', result.get('cube'))
