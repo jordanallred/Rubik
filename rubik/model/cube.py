@@ -1,4 +1,5 @@
 from rubik.model.constants import *
+from numpy import rot90, ndarray
 
 class Cube:
     '''
@@ -67,30 +68,9 @@ class Cube:
         return self.cube
     
     def _rotateFrontClockwise(self):
-        cubeCopy = self.cube
-        # face values
-        self.cube[0] = cubeCopy[6]
-        self.cube[1] = cubeCopy[3]
-        self.cube[2] = cubeCopy[0]
-        self.cube[3] = cubeCopy[7]
-        self.cube[5] = cubeCopy[1]
-        self.cube[6] = cubeCopy[8]
-        self.cube[7] = cubeCopy[5]
-        self.cube[8] = cubeCopy[2]
-        
-        # edge values
-        self.cube[9] = cubeCopy[42]
-        self.cube[12] = cubeCopy[43]
-        self.cube[15] = cubeCopy[44]
-        self.cube[45] = cubeCopy[15]
-        self.cube[46] = cubeCopy[12]
-        self.cube[47] = cubeCopy[9]
-        self.cube[29] = cubeCopy[45]
-        self.cube[32] = cubeCopy[46]
-        self.cube[35] = cubeCopy[47]
-        self.cube[42] = cubeCopy[35]
-        self.cube[43] = cubeCopy[32]
-        self.cube[44] = cubeCopy[29]
+        encodedCube = self.cube
+        cubeArray = ndarray((3, 3, 3), encodedCube)
+        print(cubeArray)
  
     def _rotateFrontCounterclockwise(self):
         pass
