@@ -40,7 +40,7 @@ class Cube:
             directions = "F"
         
         while len(directions) > 0:
-            print("TEST")
+            print("TEST: " + directions)
             if directions[0] == 'F':
                 self._rotateFrontClockwise()
             elif directions[0] == 'f':
