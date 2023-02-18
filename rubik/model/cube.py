@@ -153,7 +153,7 @@ class Cube:
     def _rotateBackClockwise(self):
         encodedCube = ""
         
-        for i in range(19):
+        for i in range(18):
             match i:
                 case 11:
                     encodedCube += self.cube[53]
@@ -191,7 +191,7 @@ class Cube:
         
         encodedCube += newFace
         
-        for i in range(28, 54):
+        for i in range(27, 54):
             match i:
                 case 11:
                     encodedCube += self.cube[53]
@@ -224,7 +224,7 @@ class Cube:
     def _rotateBackCounterclockwise(self):
         encodedCube = ""
         
-        for i in range(19):
+        for i in range(18):
             match i:
                 case 53:
                     encodedCube += self.cube[11]
@@ -262,7 +262,7 @@ class Cube:
         
         encodedCube += newFace
         
-        for i in range(28, 54):
+        for i in range(27, 54):
             match i:
                 case 53:
                     encodedCube += self.cube[11]
