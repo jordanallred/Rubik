@@ -597,7 +597,7 @@ class Cube:
                 case 19:
                     encodedCube += self.cube[10]
                 case 20:
-                    encodedCube += self.cube[1]
+                    encodedCube += self.cube[11]
                 case 27:
                     encodedCube += self.cube[18]
                 case 28:
@@ -635,7 +635,7 @@ class Cube:
                 case 19:
                     encodedCube += self.cube[10]
                 case 20:
-                    encodedCube += self.cube[1]
+                    encodedCube += self.cube[11]
                 case 27:
                     encodedCube += self.cube[18]
                 case 28:
