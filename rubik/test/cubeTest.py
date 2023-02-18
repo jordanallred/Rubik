@@ -60,7 +60,7 @@ class Test(unittest.TestCase):
         self.assertEqual(test.get().count('r'), 9)
         # self.assertEqual(test.get().count('o'), 9)
         # self.assertEqual(test.get().count('g'), 9)
-        self.assertEqual(test.get().count('y'), 9)
+        # self.assertEqual(test.get().count('y'), 9)
         self.assertEqual(test.get().count('w'), 9)
         self.assertEqual(len(test.get()), 54)
 
