@@ -9,7 +9,9 @@ def rotate(parms):
     if 'dir' not in parms:
         raise ValueError("Request does not contain parameter 'dir'")
     
-    
+    if 'cube' not in parms:
+        raise ValueError("Request does not contain parameter 'cube'")
+
     try:
         encodedCube = parms.get('cube')
         theCube = Cube(encodedCube)
