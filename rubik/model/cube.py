@@ -594,10 +594,7 @@ class Cube:
         encodedCube += newFace
         
         for i in range(45, 54):
-            if i % 9 < 3:
-                encodedCube += self.cube[(i + 9) % 36]    
-            else:
-                encodedCube += self.cube[i]              
+            encodedCube += self.cube[i]              
         self.cube = encodedCube
     
     def _rotateUpCounterclockwise(self):
@@ -619,8 +616,5 @@ class Cube:
         encodedCube += newFace
         
         for i in range(45, 54):
-            if i % 9 < 3:
-                encodedCube += self.cube[(i + 27) % 36]    
-            else:
-                encodedCube += self.cube[i]              
+            encodedCube += self.cube[i]              
         self.cube = encodedCube
