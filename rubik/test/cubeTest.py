@@ -81,7 +81,13 @@ class Test(unittest.TestCase):
         pass    
     
     def test116_rotateDefault(self):
-        pass
+        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test.rotate("F")
+        rotate1 = test.get()
+        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test.rotate("")
+        rotate2 = test.get()
+        self.assertEqual(rotate1, rotate2)
     
     def test117_rotateFront(self):
         test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
