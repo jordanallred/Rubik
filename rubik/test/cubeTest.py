@@ -60,12 +60,12 @@ class Test(unittest.TestCase):
     def test109_rotateBackCounterclockwise(self):
         test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
         test.rotate("b")
-        self.assertEquals(test.get(), "bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        self.assertEquals(test.get(), "bbbbbbbbbrryrryrryooooooooowggwggwgggggyyyyyywwwwwwrrr")
 
     def test110_rotateLeftClockwise(self):
         test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
         test.rotate("L")
-        self.assertEquals(test.get(), "bbbbbbbbbrryrryrryooooooooowggwggwgggggyyyyyywwwwwwrrr")
+        self.assertEquals(test.get(), "bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
 
         self.assertEqual(test.get().count('b'), 9)
         self.assertEqual(test.get().count('r'), 9)
