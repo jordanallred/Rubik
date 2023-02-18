@@ -69,7 +69,7 @@ class Cube:
     
     def _rotateFrontClockwise(self):
         encodedCube = self.cube
-        cubeArray = ndarray((3, 3, 3), encodedCube)
+        cubeArray = ndarray((3, 3, 3), data=encodedCube)
         print(cubeArray)
  
     def _rotateFrontCounterclockwise(self):
