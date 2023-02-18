@@ -647,4 +647,72 @@ class Cube:
         self.cube = encodedCube
     
     def _rotateUpCounterclockwise(self):
-        pass
+        encodedCube = ""
+        
+        for i in range(36):
+            match i:
+                case 27:
+                    encodedCube += self.cube[0]
+                case 28:
+                    encodedCube += self.cube[1]
+                case 29:
+                    encodedCube += self.cube[2]
+                case 0:
+                    encodedCube += self.cube[9]
+                case 1:
+                    encodedCube += self.cube[10]
+                case 2:
+                    encodedCube += self.cube[11]
+                case 9:
+                    encodedCube += self.cube[18]
+                case 10:
+                    encodedCube += self.cube[19]
+                case 11:
+                    encodedCube += self.cube[20]
+                case 18:
+                    encodedCube += self.cube[27]
+                case 19:
+                    encodedCube += self.cube[28]
+                case 20:
+                    encodedCube += self.cube[29]
+                case _:
+                    encodedCube += self.cube[i]
+                    
+        newFace = ""
+        faceList = [[self.cube[36:39]], [self.cube[39:42]], [self.cube[42:45]]]
+        faceList = rot90(faceList)
+        for row in faceList:
+            for item in row:
+                newFace += item
+        
+        encodedCube += newFace
+        
+        for i in range(45, 54):
+            match i:
+                case 27:
+                    encodedCube += self.cube[0]
+                case 28:
+                    encodedCube += self.cube[1]
+                case 29:
+                    encodedCube += self.cube[2]
+                case 0:
+                    encodedCube += self.cube[9]
+                case 1:
+                    encodedCube += self.cube[10]
+                case 2:
+                    encodedCube += self.cube[11]
+                case 9:
+                    encodedCube += self.cube[18]
+                case 10:
+                    encodedCube += self.cube[19]
+                case 11:
+                    encodedCube += self.cube[20]
+                case 18:
+                    encodedCube += self.cube[27]
+                case 19:
+                    encodedCube += self.cube[28]
+                case 20:
+                    encodedCube += self.cube[29]
+                case _:
+                    encodedCube += self.cube[i]
+        self.cube = encodedCube
