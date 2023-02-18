@@ -1,5 +1,5 @@
 from rubik.model.constants import *
-from numpy import rot90, ndarray
+from numpy import rot90
 
 class Cube:
     '''
@@ -68,9 +68,45 @@ class Cube:
         return self.cube
     
     def _rotateFrontClockwise(self):
-        encodedCube = self.cube
-        cubeArray = ndarray((3, 3, 3), data=encodedCube)
-        print(cubeArray)
+        encodedCube = ""
+        newFace = ""
+        faceList = [[self.cube[0], self.cube[1], self.cube[2]], [self.cube[3], self.cube[4], self.cube[5]], [self.cube[6], self.cube[7], self.cube[8]]]
+        for row in faceList:
+            for item in row:
+                newFace += item
+        
+        encodedCube += newFace
+        
+        for i in range(9, 54):
+            match i:
+                case 9:
+                    encodedCube += self.cube[42]
+                case 12:
+                    encodedCube += self.cube[43]
+                case 15:
+                    encodedCube += self.cube[44]
+                case 47:
+                    encodedCube += self.cube[9]
+                case 46:
+                    encodedCube += self.cube[12]
+                case 45:
+                    encodedCube += self.cube[15]
+                case 35:
+                    encodedCube += self.cube[47]
+                case 32:
+                    encodedCube += self.cube[46]
+                case 29:
+                    encodedCube += self.cube[45]
+                case 44:
+                    encodedCube += self.cube[29]
+                case 43:
+                    encodedCube += self.cube[32]
+                case 42:
+                    encodedCube += self.cube[35]
+                case _:
+                    encodedCube += self.cube[i]
+        self.cube = encodedCube
+        
  
     def _rotateFrontCounterclockwise(self):
         pass
