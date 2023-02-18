@@ -67,7 +67,7 @@ class Cube:
         return self.cube
     
     def _rotateFrontClockwise(self):
-        cubeCopy = self.cube.copy()
+        cubeCopy = self.cube
         # face values
         self.cube[0] = cubeCopy[6]
         self.cube[1] = cubeCopy[3]
