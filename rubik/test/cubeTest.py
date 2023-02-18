@@ -123,7 +123,7 @@ class Test(unittest.TestCase):
     
     def test121_rotateUp(self):
         test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
-        test.rotate("UuUuUu")
+        test.rotate("UUUuuu")
         self.assertEquals(test.get(), "bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
         
     def test122_rotateAll(self):
