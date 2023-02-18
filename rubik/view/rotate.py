@@ -1,16 +1,17 @@
 from rubik.model.cube import Cube
 
 def rotate(parms):
-    """Return rotated cube""" 
     result = {}
-    encodedCube = parms.get('cube')
-    theCube = Cube(encodedCube)
     
-    directions = parms.get('dir')
-    theCube.rotate(directions)
+    try:
+        encodedCube = parms.get('cube')
+        theCube = Cube(encodedCube)
+        directions = parms.get('dir')
+        theCube.rotate(directions)
+        result['cube'] = theCube.get()
+        result['status'] = 'ok'
     
-    result['cube'] = theCube.get()
+    except Exception as e:
+        result['status'] = 'error: ' + str(e).lower()
     
-    # remember to check for errors before returning 200 status
-    result['status'] = 'ok'
     return result
