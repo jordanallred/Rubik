@@ -6,9 +6,7 @@ def rotate(parms):
     try:
         if 'dir' not in parms:
             parms['dir'] = ''
-                
-        print(parms)
-        
+                        
         if 'cube' not in parms:
             raise ValueError("Request does not contain parameter 'cube'")
 
