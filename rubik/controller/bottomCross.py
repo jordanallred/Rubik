@@ -3,9 +3,8 @@ from rubik.model.cube import Cube
 
 def solveBottomCross(theCube: Cube) -> str:
     daisySolution = createDaisy(theCube)
-    theCube.rotate(daisySolution)
     bottomCrossSolution = createBottomCross(theCube)
-    theCube.rotate(bottomCrossSolution)
+    return daisySolution + bottomCrossSolution
     
 def isDaisy(theCube: Cube):
     bottomCrossColor = theCube.cube[DMM]
