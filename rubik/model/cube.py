@@ -294,22 +294,3 @@ class Cube:
     
     def _rotateUpCounterclockwise(self):
         self._rotateUp(self._changePaletteReverse)
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
