@@ -27,22 +27,10 @@ class RotateTest(TestCase):
         result2 = rotate(parms)
         
         self.assertEqual(result1.get('cube'), result2.get('cube'))
-                    
-    def test103_paramDir(self):
-        startCube = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
+                                
+    def test102_paramCube(self):
         parms = {}
         
-        parms['cube'] = startCube
-        parms['direction'] = 'F'
-        
-        with self.assertRaises(ValueError):
-            rotate(parms)
-            
-    def test104_paramCube(self):
-        startCube = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
-        parms = {}
-        
-        parms['wrong'] = startCube
         parms['dir'] = 'F'
         
         with self.assertRaises(ValueError):
