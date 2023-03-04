@@ -30,7 +30,6 @@ class RotateTest(TestCase):
                                 
     def test102_paramCube(self):
         parms = {}
-        
         parms['dir'] = 'F'
         
         with self.assertRaises(ValueError):
