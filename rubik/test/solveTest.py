@@ -6,9 +6,10 @@ from rubik.model.constants import *
 
 class SolveTest(TestCase):        
 
-    def test100_solve_solveBottomCross(self):
+    def test100_solve_solveNominal(self):
         parms = {}
         encodedCube = "wrrbywgwyyywbowgrgrowrwryybowobrooorggbgbgbgbworygyybo"
+        parms['cube'] = encodedCube
         result = solve(parms)
         self.assertIn('status', result)
         self.assertEqual('ok', result['status'])
