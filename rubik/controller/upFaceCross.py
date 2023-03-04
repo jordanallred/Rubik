@@ -9,4 +9,4 @@ def solveUpCross(theCube: Cube) -> str:
         input:  an instance of the cube class with the middle layer solved
         output: the rotations required to solve the up-face cross  
     '''  
-    return 'L'      #TODO:  remove this stubbed value
+    return ''      #TODO:  remove this stubbed value
