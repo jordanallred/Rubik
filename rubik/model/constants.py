@@ -76,4 +76,7 @@ DBL = 51
 DBM = 52
 DBR = 53
 
-
+# Cube Params
+NUM_ELEMENTS = 54
+NUM_FACES = 6
+VALID_DIRECTIONS = "FfBbLlRrUu"
