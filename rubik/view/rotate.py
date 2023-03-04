@@ -1,18 +1,23 @@
 from rubik.model.cube import Cube
 
 def rotate(parms):
-    """Return rotated cube""" 
     result = {}
-    # cube must be alphanumeric of 54 characters with unique 6 unique colors and unique centers
-    # stub code
-    encodedCube = parms.get('cube')
-    theCube = Cube(encodedCube)
     
-    directions = parms.get('dir')
-    theCube.rotate(directions)
+    try:
+        if 'dir' not in parms:
+            parms['dir'] = ''
+                
+        if 'cube' not in parms:
+            raise ValueError("Request does not contain parameter 'cube'")
+
+        encodedCube = parms.get('cube')
+        theCube = Cube(encodedCube)
+        directions = parms.get('dir')
+        theCube.rotate(directions)
+        result['cube'] = theCube.get()
+        result['status'] = 'ok'
     
-    result['cube'] = theCube.get()
+    except Exception as e:
+        result['status'] = 'error: ' + str(e).lower()
     
-    # remember to check for errors before returning 200 status
-    result['status'] = 'ok'
     return result
