@@ -9,4 +9,4 @@ def solveUpperLayer(theCube: Cube) -> str:
         input:  an instance of the cube class with up-face surface solved
         output: the rotations required to solve the upper layer  
     '''  
-    return 'D'      #TODO:  remove this stubbed value
+    return ''      #TODO:  remove this stubbed value

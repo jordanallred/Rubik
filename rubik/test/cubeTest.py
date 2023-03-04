@@ -33,7 +33,7 @@ class Test(unittest.TestCase):
     
     def test104_uniqueCenters(self):
         with self.assertRaises(ValueError):
-            Cube("bbbbbbbbbrrrrbrrrroooobooooggggbggggyyyybyyyywwwwbwwww")
+            Cube("rbbbbbbbbrrrrbrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
     
     def test105_validDirections(self):
         test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
@@ -43,54 +43,54 @@ class Test(unittest.TestCase):
         test.rotate('FfRrBbLlUu')
     
     def test106_rotateFrontClockwise(self):
-        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test = Cube("LQlfffyfZfZlyylLyfyLQfZlLZQfQZZQQlZlLyflLLyLQZLQQllZyy")
         test.rotate("F")
-        self.assertEquals(test.get(), "bbbbbbbbbyrryrryrroooooooooggwggwggwyyyyyygggrrrwwwwww")
+        self.assertEquals(test.get(), "yfLffQZflyZlLylQyfyLQfZlLZQfQZZQLlZQLyflLLlQZLyfQllZyy")
         
     def test107_rotateFrontCounterclockwise(self):
-        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test = Cube("222222ssDDMsDjwwjswDwjwwwjjjsjMsj2sMMwMDD2Mss2wjMMMDDD")
         test.rotate("f")
-        self.assertEquals(test.get(), "bbbbbbbbbwrrwrrwrroooooooooggyggyggyyyyyyyrrrgggwwwwww")
+        self.assertEquals(test.get(), "22D22s22sjMswjw2jswDwjwwwjjjssMss2sMMwMDD2DDwjjMMMMDDD")
     
     def test108_rotateBackClockwise(self):
-        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test = Cube("9o9o4ofooxRffoxR9fox9RRxxRoRfo4x999xxf44994R4R4f4fxRf4")
         test.rotate("B")
-        self.assertEquals(test.get(), "bbbbbbbbbrrwrrwrrwoooooooooyggyggyggrrryyyyyywwwwwwggg")
+        self.assertEquals(test.get(), "9o9o4ofooxR4fofR9RxRoRRxox94fofx9x9xfxf4994R4R4f4fxR49")
 
     def test109_rotateBackCounterclockwise(self):
-        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test = Cube("3oLLLLokLk3o99Y99LkLLo33Y339L9YoYYo3kk3okkk3oY9YkYY99o")
         test.rotate("b")
-        self.assertEquals(test.get(), "bbbbbbbbbrryrryrryooooooooowggwggwgggggyyyyyywwwwwwrrr")
+        self.assertEquals(test.get(), "3oLLLLokLk3k99k993L33L33koY9L99oYoo3YY9okkk3oY9YkYYLYo")
 
     def test110_rotateLeftClockwise(self):
-        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test = Cube("xx666b666PoToTPT6bPbTooTooTb6oPxxPxxoT6PPTPPxbbbbbToxx")
         test.rotate("L")
-        self.assertEquals(test.get(), "ybbybbybbrrrrrrrrroowoowoowgggggggggoyyoyyoyybwwbwwbww")
+        self.assertEquals(test.get(), "ox6P6bP66PoToTPT6bPboooboobPPbxx6xxoTT6TPTTPxxbb6bT6xx")
     
     def test111_rotateLeftCounterclockwise(self):
-        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test = Cube("swaBBsaBswwXXwBX8BaXwsX88awXX8sswXwB8as888BXBsa8aaBasw")
         test.rotate("l")
-        self.assertEquals(test.get(), "wbbwbbwbbrrrrrrrrrooyooyooygggggggggbyybyybyyowwowwoww")
+        self.assertEquals(test.get(), "swaaBsaBswwXXwBX8BaXBsX88a88wBXswXsXsasB88aXBwa88aBwsw")
 
     def test112_rotateRightClockwise(self):
-        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test = Cube("mmVUgtKggtVUKVVmVVVUUtKgKKtgmUUmVmmtmmggtgKKgVtttUKKUU")
         test.rotate("R")
-        self.assertEquals(test.get(), "bbwbbwbbwrrrrrrrrryooyooyoogggggggggyybyybyybwwowwowwo")
+        self.assertEquals(test.get(), "mmtUgKKgUmKtVVVVVUgUUgKggKtgmUUmVmmtmmVgttKKgVtKtUtKUV")
     
     def test113_rotateRightCounterclockwise(self):
-        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test = Cube("3Rw7w3373R7703w03w0hhR700w7RwRwhR00R70hhRh7hhw3w70R33h")
         test.rotate("r")
-        self.assertEquals(test.get(), "bbybbybbyrrrrrrrrrwoowoowoogggggggggyyoyyoyyowwbwwbwwb")
+        self.assertEquals(test.get(), "3Rh7wh37h7ww733R00hhhR70ww7RwRwhR00R700hRR7h0w3w703333")
 
     def test114_rotateUpClockwise(self):
-        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test = Cube("S8zbGQSz8SQzz8bbQ8QSSSSGGGGbQ8bQ8bz8Q8GSzGzGQb8GSbbQzz")
         test.rotate("U")
-        self.assertEquals(test.get(), "rrrbbbbbbooorrrrrrgggoooooobbbggggggyyyyyyyyywwwwwwwww")
+        self.assertEquals(test.get(), "SQzbGQSz8QSSz8bbQ8bQ8SSGGGGS8zbQ8bz8zSQGz8QGGb8GSbbQzz")
 
     def test115_rotateUpCounterclockwise(self):
-        test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")
+        test = Cube("nvnMoooPMvnMnnWoMMWWWMWvPPnMWPMMPovvPvvPPWWnWnnvovoPoo")
         test.rotate("u")
-        self.assertEquals(test.get(), "gggbbbbbbbbbrrrrrrrrroooooooooggggggyyyyyyyyywwwwwwwww")
+        self.assertEquals(test.get(), "MWPMoooPMnvnnnWoMMvnMMWvPPnWWWMMPovvvWWvPnPPWnnvovoPoo")
 
     def test116_rotateDefault(self):
         test = Cube("bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww")

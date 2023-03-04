@@ -9,4 +9,4 @@ def solveMiddleLayer(theCube: Cube) -> str:
         input:  an instance of the cube class with the bottom layer solved
         output: the rotations required to solve the middle layer  
     '''  
-    return 'B'      #TODO:  remove this stubbed value
+    return ''      #TODO:  remove this stubbed value
