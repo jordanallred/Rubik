@@ -10,6 +10,7 @@ def rotate(parms):
         print(parms)
         
         if 'cube' not in parms:
+            print("huh?")
             raise ValueError("Request does not contain parameter 'cube'")
 
         encodedCube = parms.get('cube')
