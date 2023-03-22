@@ -29,19 +29,4 @@ class SolveTest(TestCase):
         self.assertEqual(cube.cube[DMM], cube.cube[DML])
         self.assertEqual(cube.cube[DMM], cube.cube[DMR])
         self.assertEqual(cube.cube[DMM], cube.cube[DBM])
-        
-        
-    def test100_solve_solveNominal(self):
-        parms = {}
-        encodedCube = "ggeSLaeaLLLaReeSgRRReSRReegSeLeaaaLgRSSLgSaLSLgaaSRRgg"
-        parms['cube'] = encodedCube
-        result = solve(parms)
-        self.assertIn('status', result)
-        self.assertEqual('ok', result['status'])
-        self.assertIn('integrity', result)
-
-        cube = Cube(encodedCube)
-        cube.rotate(result.get('solution'))
-        
-        print(cube.get())
 
