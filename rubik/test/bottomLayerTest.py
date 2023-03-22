@@ -6,7 +6,7 @@ from rubik.model.constants import *
 
 
 class BottomLayerTest(TestCase):
-    def test101_solve_createDaisy(self):
+    def test101_solve_solveBottomLayer(self):
         cube = Cube("766Cllx7CACxxCA7Ax77lC6A76AC6C6xllAAAxlCA76xC6lll7xx76")
         solution = solveBottomCross(cube)
         cube.rotate(solution)
