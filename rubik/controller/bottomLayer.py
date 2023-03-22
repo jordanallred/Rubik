@@ -1,12 +1,32 @@
-import rubik.model.constants
+from rubik.model.constants import *
 from rubik.model.cube import Cube
 
 def solveBottomLayer(theCube: Cube) -> str:
-    '''
-        This is the top-level function  for rotating
-        a cube so that the bottom layer is solved.
-        
-        input:  an instance of the cube class with the down-face cross solved
-        output: the rotations required to solve the bottom layer  
-    '''  
-    return ''      #TODO:  remove this stubbed value
+    cubeCopy = theCube
+    encodedCube = cubeCopy.get()
+    
+    return ''
+    
+def bottomSolved(theCube: Cube) -> bool:
+    encodedCube = theCube.get()
+    
+    if encodedCube[BTL] !=  encodedCube[BMM]:
+        return False
+    if encodedCube[BTM] !=  encodedCube[BMM]:
+        return False
+    if encodedCube[BTR] !=  encodedCube[BMM]:
+        return False
+    
+    if encodedCube[BML] !=  encodedCube[BMM]:
+        return False
+    if encodedCube[BMR] !=  encodedCube[BMM]:
+        return False
+    
+    if encodedCube[BBL] !=  encodedCube[BMM]:
+        return False
+    if encodedCube[BBM] !=  encodedCube[BMM]:
+        return False
+    if encodedCube[BBR] !=  encodedCube[BMM]:
+        return False
+    
+    return True
