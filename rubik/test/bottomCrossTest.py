@@ -10,7 +10,6 @@ class BottomCrossTest(TestCase):
         solution = createDaisy(cube)
         cube.rotate(solution)
         bottomCrossColor = cube.cube[DMM]
-        print(solution)
                 
         self.assertEqual(bottomCrossColor, cube.cube[UTM])
         self.assertEqual(bottomCrossColor, cube.cube[UML])
@@ -21,7 +20,6 @@ class BottomCrossTest(TestCase):
         cube = Cube("wrrbywgwyyywbowgrgrowrwryybowobrooorggbgbgbgbworygyybo")
         solution = createBottomCross(cube)
         cube.rotate(solution)
-        print(solution)
         
         # checking centers matching palette underneath
         self.assertEqual(cube.cube[FMM], cube.cube[FBM])
