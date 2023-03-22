@@ -6,7 +6,7 @@ from rubik.model.constants import *
 
 class BottomCrossTest(TestCase):
     def test101_solve_createDaisy(self):
-        cube = Cube("3NNNm99FmF3m3WF9WFNNm9F999N3F9m3FFNWN3W39mmWWFWWmNm3W3")
+        cube = Cube("766Cllx7CACxxCA7Ax77lC6A76AC6C6xllAAAxlCA76xC6lll7xx76")
         solution = createDaisy(cube)
         cube.rotate(solution)
         bottomCrossColor = cube.cube[DMM]
@@ -17,7 +17,7 @@ class BottomCrossTest(TestCase):
         self.assertEqual(bottomCrossColor, cube.cube[UBM])
     
     def test102_solve_createBottomCross(self):
-        cube = Cube("3NNNm99FmF3m3WF9WFNNm9F999N3F9m3FFNWN3W39mmWWFWWmNm3W3")
+        cube = Cube("766Cllx7CACxxCA7Ax77lC6A76AC6C6xllAAAxlCA76xC6lll7xx76")
         solution = createDaisy(cube)
         cube.rotate(solution)
         
