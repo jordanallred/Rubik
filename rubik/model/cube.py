@@ -294,3 +294,47 @@ class Cube:
     
     def _rotateUpCounterclockwise(self):
         self._rotateUp(self._changePaletteReverse)
+    
+    def print_row(self, left):
+        for index in range(left, left + 3):
+            print(self.cube[index] + '\t', end='')
+        print('\t', end='')
+
+    def visualize(self):
+        print('\t\t\t\t', end='')
+        self.print_row(36)
+        print('\n\t\t\t\t', end='')
+        self.print_row(39)
+        print('\n\t\t\t\t', end='')
+        self.print_row(42)
+        print('\n')
+                
+        self.print_row(27)
+        self.print_row(0)
+        self.print_row(9)
+        self.print_row(18)
+        
+        print()
+        
+        self.print_row(30)
+        self.print_row(3)
+        self.print_row(12)
+        self.print_row(21)
+
+        print()
+        
+        self.print_row(33)
+        self.print_row(6)
+        self.print_row(15)
+        self.print_row(24)
+        
+        print('\n\n\t\t\t\t', end='')
+        self.print_row(45)
+        print('\n\t\t\t\t', end='')
+        self.print_row(48)
+        print('\n\t\t\t\t', end='')
+        self.print_row(51)
+
+           
+        
+        
