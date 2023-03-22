@@ -2,8 +2,10 @@ from rubik.model.constants import *
 from rubik.model.cube import Cube
 
 def solveBottomCross(theCube: Cube) -> str:
+    cubeCopy = Cube(theCube.cube)
     daisySolution = createDaisy(theCube)
-    bottomCrossSolution = createBottomCross(theCube)
+    cubeCopy.rotate(daisySolution)
+    bottomCrossSolution = createBottomCross(cubeCopy)
     
     return daisySolution + bottomCrossSolution
     

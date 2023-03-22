@@ -17,7 +17,7 @@ class BottomCrossTest(TestCase):
         self.assertEqual(bottomCrossColor, cube.cube[UBM])
     
     def test102_solve_createBottomCross(self):
-        cube = Cube("H6c56c556DDc6cBHHc6DHcBD66HD6BcHcDHc6BD55H5DBBB5BD5BH5")
+        cube = Cube("cBD56H55Bc656cHH6H6cD5B65cB6HB5Hc5HcHDcD5DDD6BBDBDcHB6")
         solution = createBottomCross(cube)
         cube.rotate(solution)
         

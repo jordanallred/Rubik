@@ -8,7 +8,7 @@ class SolveTest(TestCase):
 
     def test100_solve_solveNominal(self):
         parms = {}
-        encodedCube = "wrrbywgwyyywbowgrgrowrwryybowobrooorggbgbgbgbworygyybo"
+        encodedCube = "H6c56c556DDc6cBHHc6DHcBD66HD6BcHcDHc6BD55H5DBBB5BD5BH5"
         parms['cube'] = encodedCube
         result = solve(parms)
         self.assertIn('status', result)
