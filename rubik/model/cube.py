@@ -306,7 +306,10 @@ class Cube:
         self._rotateUp(self._changePaletteReverse)
         
     def left_trigger(self, face):
-        face.lower()
+        self.rotate(face.left.letter.lower() + 'u' + face.left.letter.upper())
+
+    def right_trigger(self, face):
+        self.rotate(face.left.letter.upper() + 'U' + face.left.letter.lower())
     
     def print_row(self, left):
         for index in range(left, left + 3):
