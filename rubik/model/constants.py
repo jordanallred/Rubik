@@ -1,8 +1,14 @@
+from dataclasses import dataclass
+
 '''
 Constants used across the microservice 
 '''
 
-from rubik.model.cube import Face
+@dataclass
+class Face:
+    left = None
+    right = None
+    letter: str
 
 #-----------------------------------
 #  Mapping of cube element positions to mnemonic names
@@ -84,24 +90,20 @@ NUM_FACES = 6
 VALID_DIRECTIONS = "FfBbLlRrUu"
 
 # Triggers
-FRONT = Face()
-RIGHT = Face()
-LEFT = Face()
-BACK = Face()
+FRONT = Face('f')
+RIGHT = Face('r')
+LEFT = Face('l')
+BACK = Face('b')
 
 FRONT.right = RIGHT
 FRONT.left = LEFT
-FRONT.letter = 'f'
 
 RIGHT.right = BACK
 RIGHT.left = FRONT
-RIGHT.letter = 'r'
 
 LEFT.right = FRONT
 LEFT.left = BACK
-LEFT.letter = 'l'
 
 BACK.right = LEFT
 BACK.left = RIGHT
-BACK.letter = 'b'
 

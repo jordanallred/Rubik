@@ -1,14 +1,4 @@
 from rubik.model.constants import *
-from dataclasses import dataclass
-
-
-@dataclass
-class Face:
-    left: Face
-    right: Face
-    letter: str
-    
-
 
 class Cube:
     '''
@@ -43,6 +33,7 @@ class Cube:
         
         while len(directions) > 0:
             if not VALID_DIRECTIONS.__contains__(directions[0]):
+                print(directions)
                 raise ValueError("Input contains invalid rotation direction.")
 
             if directions[0] == 'F':
@@ -306,10 +297,14 @@ class Cube:
         self._rotateUp(self._changePaletteReverse)
         
     def left_trigger(self, face):
-        self.rotate(face.left.letter.lower() + 'u' + face.left.letter.upper())
+        rotations = face.left.letter.lower() + 'u' + face.left.letter.upper()
+        self.rotate(rotations)
+        return rotations
 
     def right_trigger(self, face):
-        self.rotate(face.left.letter.upper() + 'U' + face.left.letter.lower())
+        rotations = face.right.letter.upper() + 'U' + face.right.letter.lower()
+        self.rotate(rotations)
+        return rotations
     
     def print_row(self, left):
         for index in range(left, left + 3):
