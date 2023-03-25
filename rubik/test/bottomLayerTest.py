@@ -8,7 +8,6 @@ from rubik.test.tools import create_cube
 class BottomLayerTest(TestCase):
     def test101_solve_solveDTL(self):
         cube = create_cube()
-        print(cube.get())
         solution = solveBottomCross(cube)
         cube.rotate(solution)
         
@@ -22,7 +21,6 @@ class BottomLayerTest(TestCase):
 
     def test102_solve_solveDTM(self):
         cube = create_cube()
-        print(cube.get())
         solution = solveBottomCross(cube)
         cube.rotate(solution)
         
@@ -36,7 +34,6 @@ class BottomLayerTest(TestCase):
 
     def test103_solve_solveDTR(self):
         cube = create_cube()
-        print(cube.get())
         solution = solveBottomCross(cube)
         cube.rotate(solution)
         
@@ -50,7 +47,6 @@ class BottomLayerTest(TestCase):
 
     def test104_solve_solveDML(self):
         cube = create_cube()
-        print(cube.get())
         solution = solveBottomCross(cube)
         cube.rotate(solution)
         
@@ -64,7 +60,6 @@ class BottomLayerTest(TestCase):
 
     def test105_solve_solveDMR(self):
         cube = create_cube()
-        print(cube.get())
         solution = solveBottomCross(cube)
         cube.rotate(solution)
         
@@ -78,7 +73,6 @@ class BottomLayerTest(TestCase):
 
     def test106_solve_solveDBL(self):
         cube = create_cube()
-        print(cube.get())
         solution = solveBottomCross(cube)
         cube.rotate(solution)
         
@@ -92,7 +86,6 @@ class BottomLayerTest(TestCase):
 
     def test107_solve_solveDBM(self):
         cube = create_cube()
-        print(cube.get())
         solution = solveBottomCross(cube)
         cube.rotate(solution)
         
@@ -106,7 +99,6 @@ class BottomLayerTest(TestCase):
 
     def test108_solve_solveDBR(self):
         cube = create_cube()
-        print(cube.get())
         solution = solveBottomCross(cube)
         cube.rotate(solution)
         

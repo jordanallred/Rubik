@@ -2,11 +2,12 @@ from unittest import TestCase
 from rubik.model.cube import Cube
 from rubik.controller.bottomCross import *
 from rubik.model.constants import *
+from rubik.test.tools import create_cube
 
 
 class BottomCrossTest(TestCase):
     def test101_solve_createDaisy(self):
-        cube = Cube("766Cllx7CACxxCA7Ax77lC6A76AC6C6xllAAAxlCA76xC6lll7xx76")
+        cube = create_cube()
         solution = createDaisy(cube)
         cube.rotate(solution)
         bottomCrossColor = cube.cube[DMM]
@@ -17,7 +18,7 @@ class BottomCrossTest(TestCase):
         self.assertEqual(bottomCrossColor, cube.cube[UBM])
     
     def test102_solve_createBottomCross(self):
-        cube = Cube("766Cllx7CACxxCA7Ax77lC6A76AC6C6xllAAAxlCA76xC6lll7xx76")
+        cube = create_cube()
         solution = createDaisy(cube)
         cube.rotate(solution)
         
