@@ -10,12 +10,12 @@ class BottomCrossTest(TestCase):
         cube = create_cube()
         solution = createDaisy(cube)
         cube.rotate(solution)
-        bottomCrossColor = cube.cube[DMM]
+        encodedCube = cube.get()
                 
-        self.assertEqual(bottomCrossColor, cube.cube[UTM])
-        self.assertEqual(bottomCrossColor, cube.cube[UML])
-        self.assertEqual(bottomCrossColor, cube.cube[UMR])
-        self.assertEqual(bottomCrossColor, cube.cube[UBM])
+        self.assertEqual(encodedCube[DMM], encodedCube[UTM])
+        self.assertEqual(encodedCube[DMM], encodedCube[UML])
+        self.assertEqual(encodedCube[DMM], encodedCube[UMR])
+        self.assertEqual(encodedCube[DMM], encodedCube[UBM])
     
     def test102_solve_createBottomCross(self):
         cube = create_cube()
@@ -24,16 +24,17 @@ class BottomCrossTest(TestCase):
         
         solution = createBottomCross(cube)
         cube.rotate(solution)
+        encodedCube = cube.get()
                 
         # checking centers matching palette underneath
-        self.assertEqual(cube.cube[FMM], cube.cube[FBM])
-        self.assertEqual(cube.cube[RMM], cube.cube[RBM])
-        self.assertEqual(cube.cube[BMM], cube.cube[BBM])
-        self.assertEqual(cube.cube[LMM], cube.cube[LBM])
+        self.assertEqual(encodedCube[FMM], encodedCube[FBM])
+        self.assertEqual(encodedCube[RMM], encodedCube[RBM])
+        self.assertEqual(encodedCube[BMM], encodedCube[BBM])
+        self.assertEqual(encodedCube[LMM], encodedCube[LBM])
 
         # checking bottom cross is formed
-        self.assertEqual(cube.cube[DMM], cube.cube[DTM])
-        self.assertEqual(cube.cube[DMM], cube.cube[DML])
-        self.assertEqual(cube.cube[DMM], cube.cube[DMR])
-        self.assertEqual(cube.cube[DMM], cube.cube[DBM])
+        self.assertEqual(encodedCube[DMM], encodedCube[DTM])
+        self.assertEqual(encodedCube[DMM], encodedCube[DML])
+        self.assertEqual(encodedCube[DMM], encodedCube[DMR])
+        self.assertEqual(encodedCube[DMM], encodedCube[DBM])
         
