@@ -5,6 +5,10 @@ def solveBottomLayer(theCube: Cube) -> str:
     cubeCopy = theCube
     encodedCube = cubeCopy.get()
     
+    if encodedCube[FTL] == encodedCube[BMM]:
+        if encodedCube[LTR] == encodedCube[LMM]:
+            cubeCopy.
+    
     return ''
     
 def bottomSolved(theCube: Cube) -> bool:

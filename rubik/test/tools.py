@@ -4,8 +4,8 @@ import random, string
 
 def create_cube():
     encodedCube = ""
+    colors = list(string.ascii_uppercase + string.ascii_lowercase + string.digits)
     for index in range(NUM_FACES):
-        colors = list(string.ascii_uppercase + string.ascii_lowercase + string.digits)
         color = random.choice(colors)
         encodedCube += color * (NUM_ELEMENTS // NUM_FACES)
         colors.remove(color)

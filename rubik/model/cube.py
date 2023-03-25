@@ -1,4 +1,14 @@
 from rubik.model.constants import *
+from dataclasses import dataclass
+
+
+@dataclass
+class Face:
+    left: Face
+    right: Face
+    letter: str
+    
+
 
 class Cube:
     '''
@@ -294,6 +304,9 @@ class Cube:
     
     def _rotateUpCounterclockwise(self):
         self._rotateUp(self._changePaletteReverse)
+        
+    def left_trigger(self, face):
+        face.lower()
     
     def print_row(self, left):
         for index in range(left, left + 3):
@@ -335,6 +348,5 @@ class Cube:
         print('\n\t\t\t\t', end='')
         self.print_row(51)
 
-           
         
         

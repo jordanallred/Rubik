@@ -2,6 +2,8 @@
 Constants used across the microservice 
 '''
 
+from rubik.model.cube import Face
+
 #-----------------------------------
 #  Mapping of cube element positions to mnemonic names
 #  Each mnemonic is a three-character pattern, frc, where
@@ -80,3 +82,26 @@ DBR = 53
 NUM_ELEMENTS = 54
 NUM_FACES = 6
 VALID_DIRECTIONS = "FfBbLlRrUu"
+
+# Triggers
+FRONT = Face()
+RIGHT = Face()
+LEFT = Face()
+BACK = Face()
+
+FRONT.right = RIGHT
+FRONT.left = LEFT
+FRONT.letter = 'f'
+
+RIGHT.right = BACK
+RIGHT.left = FRONT
+RIGHT.letter = 'r'
+
+LEFT.right = FRONT
+LEFT.left = BACK
+LEFT.letter = 'l'
+
+BACK.right = LEFT
+BACK.left = RIGHT
+BACK.letter = 'b'
+
