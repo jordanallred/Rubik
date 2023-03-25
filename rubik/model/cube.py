@@ -13,7 +13,7 @@ class Cube:
             if color not in uniqueColors:
                 uniqueColors.append(color)
         if len(uniqueColors) != NUM_FACES:
-            raise ValueError("Number of unique colors must be six.")
+            raise ValueError(f"Number of unique colors must be {NUM_FACES}.")
         
         if not encodedCube.isalnum():
             raise ValueError("Palette values must be alphanumeric.")

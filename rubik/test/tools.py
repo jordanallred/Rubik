@@ -5,10 +5,10 @@ import random, string
 def create_cube():
     encodedCube = ""
     for index in range(NUM_FACES):
-        colors = string.ascii_uppercase + string.ascii_lowercase + string.digits
+        colors = list(string.ascii_uppercase + string.ascii_lowercase + string.digits)
         color = random.choice(colors)
         encodedCube += color * (NUM_ELEMENTS // NUM_FACES)
-        colors.replace(color, '')
+        colors.remove(color)
     cube = Cube(encodedCube)
     cube.rotate(random.choices(list(VALID_DIRECTIONS), k=10))
     return cube
