@@ -38,6 +38,8 @@ def solveBottomLayer(theCube: Cube) -> str:
 def bottomSolved(theCube: Cube) -> bool:
     encodedCube = theCube.get()
     
+    theCube.visualize()
+    
     if encodedCube[DTL] !=  encodedCube[DMM]:
         return False
     if encodedCube[DTM] !=  encodedCube[DMM]:

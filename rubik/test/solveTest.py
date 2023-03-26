@@ -17,5 +17,3 @@ class SolveTest(TestCase):
 
         cube = Cube(encodedCube)
         cube.rotate(result.get('solution'))
-        
-        cube.visualize()

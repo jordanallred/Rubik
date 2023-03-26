@@ -9,7 +9,6 @@ class BottomCrossTest(TestCase):
     def test101_solve_createDaisy01(self):
         cube = create_cube()
         solution = createDaisy(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[DMM], encodedCube[UTM])
@@ -17,7 +16,6 @@ class BottomCrossTest(TestCase):
     def test102_solve_createDaisy02(self):
         cube = create_cube()
         solution = createDaisy(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[DMM], encodedCube[UML])
@@ -25,7 +23,6 @@ class BottomCrossTest(TestCase):
     def test103_solve_createDaisy03(self):
         cube = create_cube()
         solution = createDaisy(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[DMM], encodedCube[UMR])
@@ -33,7 +30,6 @@ class BottomCrossTest(TestCase):
     def test104_solve_createDaisy04(self):
         cube = create_cube()
         solution = createDaisy(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[DMM], encodedCube[UBM])
@@ -41,10 +37,8 @@ class BottomCrossTest(TestCase):
     def test105_solve_bottomCross01(self):
         cube = create_cube()
         solution = createDaisy(cube)
-        cube.rotate(solution)
         
         solution = createBottomCross(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[FMM], encodedCube[FBM])
@@ -52,10 +46,8 @@ class BottomCrossTest(TestCase):
     def test106_solve_bottomCross02(self):
         cube = create_cube()
         solution = createDaisy(cube)
-        cube.rotate(solution)
         
         solution = createBottomCross(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[RMM], encodedCube[RBM])
@@ -63,10 +55,8 @@ class BottomCrossTest(TestCase):
     def test107_solve_bottomCross03(self):
         cube = create_cube()
         solution = createDaisy(cube)
-        cube.rotate(solution)
         
         solution = createBottomCross(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[BMM], encodedCube[BBM])
@@ -74,10 +64,8 @@ class BottomCrossTest(TestCase):
     def test108_solve_bottomCross04(self):
         cube = create_cube()
         solution = createDaisy(cube)
-        cube.rotate(solution)
         
         solution = createBottomCross(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[LMM], encodedCube[LBM])
@@ -85,10 +73,8 @@ class BottomCrossTest(TestCase):
     def test109_solve_bottomCross05(self):
         cube = create_cube()
         solution = createDaisy(cube)
-        cube.rotate(solution)
         
         solution = createBottomCross(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[DMM], encodedCube[DTM])
@@ -96,10 +82,8 @@ class BottomCrossTest(TestCase):
     def test110_solve_bottomCross06(self):
         cube = Cube("VCT444VVV444NCNT04T04VVVNNNNNNT0TV0T0VC0NC0T00CC4TTCCC")
         solution = createDaisy(cube)
-        cube.rotate(solution)
                 
         solution = createBottomCross(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[DMM], encodedCube[DML])
@@ -107,10 +91,8 @@ class BottomCrossTest(TestCase):
     def test111_solve_bottomCross07(self):
         cube = create_cube()
         solution = createDaisy(cube)
-        cube.rotate(solution)
         
         solution = createBottomCross(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[DMM], encodedCube[DMR])
@@ -118,10 +100,8 @@ class BottomCrossTest(TestCase):
     def test112_solve_bottomCross08(self):
         cube = create_cube()
         solution = createDaisy(cube)
-        cube.rotate(solution)
         
         solution = createBottomCross(cube)
-        cube.rotate(solution)
         encodedCube = cube.get()
                 
         self.assertEqual(encodedCube[DMM], encodedCube[DBM])
