@@ -94,10 +94,10 @@ class BottomCrossTest(TestCase):
         self.assertEqual(encodedCube[DMM], encodedCube[DTM])
         
     def test110_solve_bottomCross06(self):
-        cube = create_cube()
+        cube = Cube("VCT444VVV444NCNT04T04VVVNNNNNNT0TV0T0VC0NC0T00CC4TTCCC")
         solution = createDaisy(cube)
         cube.rotate(solution)
-        
+                
         solution = createBottomCross(cube)
         cube.rotate(solution)
         encodedCube = cube.get()

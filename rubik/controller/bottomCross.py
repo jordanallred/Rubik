@@ -67,28 +67,31 @@ def createBottomCross(theCube: Cube):
     cubeCopy = Cube(theCube.cube)
     solution = ''
     
-    while cubeCopy.cube[FTM] != cubeCopy.cube[FMM]:
+    while cubeCopy.cube[FTM] != cubeCopy.cube[FMM] or cubeCopy.cube[UBM] != cubeCopy.cube[DMM]:
         cubeCopy._rotateUpClockwise()
         solution += 'U'
     cubeCopy._rotateFrontClockwise()
     cubeCopy._rotateFrontClockwise()
     solution += 'FF'
     
-    while cubeCopy.cube[RTM] != cubeCopy.cube[RMM]:
+    
+    while cubeCopy.cube[RTM] != cubeCopy.cube[RMM] or cubeCopy.cube[UMR] != cubeCopy.cube[DMM]:
         cubeCopy._rotateUpClockwise()
         solution += 'U'
     cubeCopy._rotateRightClockwise()
     cubeCopy._rotateRightClockwise()
     solution += 'RR'
 
-    while cubeCopy.cube[BTM] != cubeCopy.cube[BMM]:
+
+    while cubeCopy.cube[BTM] != cubeCopy.cube[BMM] or cubeCopy.cube[UTM] != cubeCopy.cube[DMM]:
         cubeCopy._rotateUpClockwise()
         solution += 'U'
     cubeCopy._rotateBackClockwise()
     cubeCopy._rotateBackClockwise()
     solution += 'BB'
+
     
-    while cubeCopy.cube[LTM] != cubeCopy.cube[LMM]:
+    while cubeCopy.cube[LTM] != cubeCopy.cube[LMM] or cubeCopy.cube[UML] != cubeCopy.cube[DMM]:
         cubeCopy._rotateUpClockwise()
         solution += 'U'
     cubeCopy._rotateLeftClockwise()

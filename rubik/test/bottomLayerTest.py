@@ -10,12 +10,10 @@ class BottomLayerTest(TestCase):
         cube = create_cube()
         solution = solveBottomCross(cube)
         cube.rotate(solution)
-        
+                        
         solution = solveBottomLayer(cube)
-        cube.rotate(solution)
-        
+                
         encodedCube = cube.get()
-        
         self.assertEqual(encodedCube[DTL], encodedCube[DMM])
 
 
@@ -25,7 +23,6 @@ class BottomLayerTest(TestCase):
         cube.rotate(solution)
         
         solution = solveBottomLayer(cube)
-        cube.rotate(solution)
         
         encodedCube = cube.get()
         
@@ -36,12 +33,10 @@ class BottomLayerTest(TestCase):
         cube = create_cube()
         solution = solveBottomCross(cube)
         cube.rotate(solution)
-        
+                
         solution = solveBottomLayer(cube)
-        cube.rotate(solution)
         
         encodedCube = cube.get()
-        
         self.assertEqual(encodedCube[DTR], encodedCube[DMM])
 
 
@@ -49,10 +44,9 @@ class BottomLayerTest(TestCase):
         cube = create_cube()
         solution = solveBottomCross(cube)
         cube.rotate(solution)
-        
+                
         solution = solveBottomLayer(cube)
-        cube.rotate(solution)
-        
+                
         encodedCube = cube.get()
 
         self.assertEqual(encodedCube[DML], encodedCube[DMM])
@@ -64,7 +58,6 @@ class BottomLayerTest(TestCase):
         cube.rotate(solution)
         
         solution = solveBottomLayer(cube)
-        cube.rotate(solution)
         
         encodedCube = cube.get()
         
@@ -77,7 +70,6 @@ class BottomLayerTest(TestCase):
         cube.rotate(solution)
         
         solution = solveBottomLayer(cube)
-        cube.rotate(solution)
         
         encodedCube = cube.get()
         
@@ -90,7 +82,6 @@ class BottomLayerTest(TestCase):
         cube.rotate(solution)
         
         solution = solveBottomLayer(cube)
-        cube.rotate(solution)
         
         encodedCube = cube.get()
         
@@ -103,7 +94,6 @@ class BottomLayerTest(TestCase):
         cube.rotate(solution)
         
         solution = solveBottomLayer(cube)
-        cube.rotate(solution)
         
         encodedCube = cube.get()
         
