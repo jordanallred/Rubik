@@ -8,8 +8,7 @@ from rubik.test.tools import create_cube
 class BottomLayerTest(TestCase):
     def test101_solve_solveDTL(self):
         cube = create_cube()
-        solveBottomCross(cube)
-                        
+        solveBottomCross(cube)    
         solveBottomLayer(cube)
                 
         encodedCube = cube.get()
@@ -18,75 +17,62 @@ class BottomLayerTest(TestCase):
 
     def test102_solve_solveDTM(self):
         cube = create_cube()
-        solveBottomCross(cube)
-        
+        solveBottomCross(cube)    
         solveBottomLayer(cube)
-        
+                
         encodedCube = cube.get()
-        
         self.assertEqual(encodedCube[DTM], encodedCube[DMM])
 
 
     def test103_solve_solveDTR(self):
         cube = create_cube()
-        solveBottomCross(cube)
-                
+        solveBottomCross(cube)    
         solveBottomLayer(cube)
-        
+                
         encodedCube = cube.get()
         self.assertEqual(encodedCube[DTR], encodedCube[DMM])
 
 
     def test104_solve_solveDML(self):
         cube = create_cube()
-        solveBottomCross(cube)
-                
+        solveBottomCross(cube)    
         solveBottomLayer(cube)
                 
         encodedCube = cube.get()
-
         self.assertEqual(encodedCube[DML], encodedCube[DMM])
 
 
     def test105_solve_solveDMR(self):
         cube = create_cube()
-        solveBottomCross(cube)
-        
+        solveBottomCross(cube)    
         solveBottomLayer(cube)
-        
+                
         encodedCube = cube.get()
-        
         self.assertEqual(encodedCube[DMR], encodedCube[DMM])
 
 
     def test106_solve_solveDBL(self):
         cube = create_cube()
-        solveBottomCross(cube)
-        
+        solveBottomCross(cube)    
         solveBottomLayer(cube)
-        
+                
         encodedCube = cube.get()
-        
         self.assertEqual(encodedCube[DBL], encodedCube[DMM])
 
 
     def test107_solve_solveDBM(self):
         cube = create_cube()
-        solveBottomCross(cube)
-        
+        solveBottomCross(cube)    
         solveBottomLayer(cube)
-        
+                
         encodedCube = cube.get()
-        
         self.assertEqual(encodedCube[DBM], encodedCube[DMM])
 
 
     def test108_solve_solveDBR(self):
         cube = create_cube()
-        solveBottomCross(cube)
-        
+        solveBottomCross(cube)    
         solveBottomLayer(cube)
-        
+                
         encodedCube = cube.get()
-        
         self.assertEqual(encodedCube[DBR], encodedCube[DMM])

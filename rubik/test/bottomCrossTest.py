@@ -37,10 +37,9 @@ class BottomCrossTest(TestCase):
     def test105_solve_bottomCross01(self):
         cube = create_cube()
         createDaisy(cube)
-        
         createBottomCross(cube)
+        
         encodedCube = cube.get()
-                
         self.assertEqual(encodedCube[FMM], encodedCube[FBM])
 
     def test106_solve_bottomCross02(self):

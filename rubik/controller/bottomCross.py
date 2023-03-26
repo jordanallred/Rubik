@@ -3,7 +3,6 @@ from rubik.model.cube import Cube
 
 def solveBottomCross(theCube: Cube) -> str:
     daisySolution = createDaisy(theCube)
-    theCube.rotate(daisySolution)
     bottomCrossSolution = createBottomCross(theCube)
     
     return daisySolution + bottomCrossSolution
@@ -94,6 +93,7 @@ def createBottomCross(theCube: Cube):
     while encodedCube[FTM] != encodedCube[FMM] or encodedCube[UBM] != encodedCube[DMM]:
         theCube._rotateUpClockwise()
         solution += 'U'
+        encodedCube = theCube.get()
     theCube._rotateFrontClockwise()
     theCube._rotateFrontClockwise()
     solution += 'FF'
@@ -103,6 +103,7 @@ def createBottomCross(theCube: Cube):
     while encodedCube[RTM] != encodedCube[RMM] or encodedCube[UMR] != encodedCube[DMM]:
         theCube._rotateUpClockwise()
         solution += 'U'
+        encodedCube = theCube.get()
     theCube._rotateRightClockwise()
     theCube._rotateRightClockwise()
     solution += 'RR'
@@ -112,6 +113,7 @@ def createBottomCross(theCube: Cube):
     while encodedCube[BTM] != encodedCube[BMM] or encodedCube[UTM] != encodedCube[DMM]:
         theCube._rotateUpClockwise()
         solution += 'U'
+        encodedCube = theCube.get()
     theCube._rotateBackClockwise()
     theCube._rotateBackClockwise()
     solution += 'BB'
@@ -121,6 +123,7 @@ def createBottomCross(theCube: Cube):
     while encodedCube[LTM] != encodedCube[LMM] or encodedCube[UML] != encodedCube[DMM]:
         theCube._rotateUpClockwise()
         solution += 'U'
+        encodedCube = theCube.get()
     theCube._rotateLeftClockwise()
     theCube._rotateLeftClockwise()
     solution += 'LL'

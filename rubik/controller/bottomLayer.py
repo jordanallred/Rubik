@@ -7,7 +7,7 @@ def solveBottomLayer(theCube: Cube) -> str:
     global solution
     encodedCube = theCube.get()
     
-    while not bottomSolved(theCube):
+    while not bottomSolved(encodedCube):
         encodedCube = move_color_happy(encodedCube, theCube, FTL, LTR, theCube.right_trigger)
         encodedCube = move_color_happy(encodedCube, theCube, FTR, RTL, theCube.left_trigger)
         
@@ -31,12 +31,10 @@ def solveBottomLayer(theCube: Cube) -> str:
     
         encodedCube = move_color_sad(encodedCube, theCube, LEFT, LBL, theCube.left_trigger, UBL, theCube.right_trigger)
         encodedCube = move_color_sad(encodedCube, theCube, LEFT, LBR, theCube.right_trigger, UTL, theCube.left_trigger)
-         
+        
     return solution
     
-def bottomSolved(theCube: Cube) -> bool:
-    encodedCube = theCube.get()
-        
+def bottomSolved(encodedCube) -> bool:    
     if encodedCube[DTL] !=  encodedCube[DMM]:
         return False
     if encodedCube[DTM] !=  encodedCube[DMM]:
