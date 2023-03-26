@@ -5,33 +5,32 @@ solution = ''
 
 def solveBottomLayer(theCube: Cube) -> str:
     global solution
-    cubeCopy = theCube
-    encodedCube = cubeCopy.get()
+    encodedCube = theCube.get()
     
-    while not bottomSolved(cubeCopy):
-        encodedCube = move_color_happy(encodedCube, cubeCopy, FTL, LTR, cubeCopy.right_trigger)
-        encodedCube = move_color_happy(encodedCube, cubeCopy, FTR, RTL, cubeCopy.left_trigger)
+    while not bottomSolved(theCube):
+        encodedCube = move_color_happy(encodedCube, theCube, FTL, LTR, theCube.right_trigger)
+        encodedCube = move_color_happy(encodedCube, theCube, FTR, RTL, theCube.left_trigger)
         
-        encodedCube = move_color_happy(encodedCube, cubeCopy, RTL, FTR, cubeCopy.right_trigger)
-        encodedCube = move_color_happy(encodedCube, cubeCopy, RTR, BTL, cubeCopy.left_trigger)
+        encodedCube = move_color_happy(encodedCube, theCube, RTL, FTR, theCube.right_trigger)
+        encodedCube = move_color_happy(encodedCube, theCube, RTR, BTL, theCube.left_trigger)
     
-        encodedCube = move_color_happy(encodedCube, cubeCopy, BTL, RTR, cubeCopy.right_trigger)
-        encodedCube = move_color_happy(encodedCube, cubeCopy, BTR, LTL, cubeCopy.left_trigger)
+        encodedCube = move_color_happy(encodedCube, theCube, BTL, RTR, theCube.right_trigger)
+        encodedCube = move_color_happy(encodedCube, theCube, BTR, LTL, theCube.left_trigger)
     
-        encodedCube = move_color_happy(encodedCube, cubeCopy, LTL, BTR, cubeCopy.right_trigger)
-        encodedCube = move_color_happy(encodedCube, cubeCopy, LTR, FTL, cubeCopy.left_trigger)
+        encodedCube = move_color_happy(encodedCube, theCube, LTL, BTR, theCube.right_trigger)
+        encodedCube = move_color_happy(encodedCube, theCube, LTR, FTL, theCube.left_trigger)
     
-        encodedCube = move_color_sad(encodedCube, cubeCopy, FRONT, FBL, cubeCopy.left_trigger, UBR, cubeCopy.right_trigger)
-        encodedCube = move_color_sad(encodedCube, cubeCopy, FRONT, FBR, cubeCopy.right_trigger, UBL, cubeCopy.left_trigger)
+        encodedCube = move_color_sad(encodedCube, theCube, FRONT, FBL, theCube.left_trigger, UBR, theCube.right_trigger)
+        encodedCube = move_color_sad(encodedCube, theCube, FRONT, FBR, theCube.right_trigger, UBL, theCube.left_trigger)
     
-        encodedCube = move_color_sad(encodedCube, cubeCopy, RIGHT, RBL, cubeCopy.left_trigger, UTR, cubeCopy.right_trigger)
-        encodedCube = move_color_sad(encodedCube, cubeCopy, RIGHT, RBR, cubeCopy.right_trigger, UBR, cubeCopy.left_trigger)
+        encodedCube = move_color_sad(encodedCube, theCube, RIGHT, RBL, theCube.left_trigger, UTR, theCube.right_trigger)
+        encodedCube = move_color_sad(encodedCube, theCube, RIGHT, RBR, theCube.right_trigger, UBR, theCube.left_trigger)
     
-        encodedCube = move_color_sad(encodedCube, cubeCopy, BACK, BBL, cubeCopy.left_trigger, UTL, cubeCopy.right_trigger)
-        encodedCube = move_color_sad(encodedCube, cubeCopy, BACK, BBR, cubeCopy.right_trigger, UTR, cubeCopy.left_trigger)
+        encodedCube = move_color_sad(encodedCube, theCube, BACK, BBL, theCube.left_trigger, UTL, theCube.right_trigger)
+        encodedCube = move_color_sad(encodedCube, theCube, BACK, BBR, theCube.right_trigger, UTR, theCube.left_trigger)
     
-        encodedCube = move_color_sad(encodedCube, cubeCopy, LEFT, LBL, cubeCopy.left_trigger, UBL, cubeCopy.right_trigger)
-        encodedCube = move_color_sad(encodedCube, cubeCopy, LEFT, LBR, cubeCopy.right_trigger, UTL, cubeCopy.left_trigger)
+        encodedCube = move_color_sad(encodedCube, theCube, LEFT, LBL, theCube.left_trigger, UBL, theCube.right_trigger)
+        encodedCube = move_color_sad(encodedCube, theCube, LEFT, LBR, theCube.right_trigger, UTL, theCube.left_trigger)
          
     return solution
     
@@ -59,12 +58,12 @@ def bottomSolved(theCube: Cube) -> bool:
         
     return True
 
-def move_color_happy(encodedCube, cubeCopy, target_color, face_color, trigger):
+def move_color_happy(encodedCube, theCube, target_color, face_color, trigger):
     global solution    
     if encodedCube[target_color] == encodedCube[DMM]:
         while encodedCube[face_color] != encodedCube[face_color + (4 - face_color % (NUM_ELEMENTS // NUM_FACES))]:
-            cubeCopy.rotate('u')
-            encodedCube = cubeCopy.get()
+            theCube.rotate('u')
+            encodedCube = theCube.get()
             solution += 'u'
             face_color = (face_color + (NUM_ELEMENTS // NUM_FACES)) % ((NUM_ELEMENTS // NUM_FACES) * 4)
             
@@ -79,17 +78,17 @@ def move_color_happy(encodedCube, cubeCopy, target_color, face_color, trigger):
             
         solution += trigger(face)
             
-    return cubeCopy.get()
+    return theCube.get()
 
-def move_color_sad(encodedCube, cubeCopy, face, moveUp, trigger1, doubleTrigger, trigger2):
+def move_color_sad(encodedCube, theCube, face, moveUp, trigger1, doubleTrigger, trigger2):
     global solution    
     if encodedCube[moveUp] == encodedCube[DMM]:
         solution += trigger1(face)
-        encodedCube = cubeCopy.get()
+        encodedCube = theCube.get()
         
     if encodedCube[doubleTrigger] == encodedCube[DMM]:
         solution += trigger2(face)
         solution += trigger2(face)
-    return cubeCopy.get()
+    return theCube.get()
 
     

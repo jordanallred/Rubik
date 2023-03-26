@@ -84,6 +84,7 @@ def createDaisy(theCube: Cube):
     while not isDaisy(theCube):
         solution = create_middles(theCube, bottomCrossColor, solution)
         solution = check_middles(theCube, bottomCrossColor, solution)
+        
     return solution
 
 def createBottomCross(theCube: Cube):
