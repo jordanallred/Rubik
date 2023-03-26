@@ -19,8 +19,12 @@ class Cube:
             raise ValueError("Palette values must be alphanumeric.")
             
         if len(encodedCube) != NUM_ELEMENTS:
-            raise ValueError("Cube must have exactly 54 palette values.")
+            raise ValueError(f"Cube must have exactly {NUM_ELEMENTS} palette values.")
         
+        for color in uniqueColors:
+            if encodedCube.count(color) != NUM_ELEMENTS // NUM_FACES:
+                raise ValueError(f"Cube must have exactly {NUM_ELEMENTS // NUM_FACES} occurences of legal values.")
+                
         if len([encodedCube[FMM], encodedCube[BMM], encodedCube[LMM], encodedCube[RMM], encodedCube[UMM], encodedCube[DMM]]) != len(set([encodedCube[FMM], encodedCube[BMM], encodedCube[LMM], encodedCube[RMM], encodedCube[UMM], encodedCube[DMM]])):
             raise ValueError("Cube must have unique centers.")
         
@@ -66,13 +70,13 @@ class Cube:
         return self.cube
     
     def _changePalette(self, encodedCube, newPosition, oldPosition):
-            return encodedCube[:newPosition] + self.cube[oldPosition] + encodedCube[newPosition + 1:]
+            return encodedCube[:newPosition] + self.get()[oldPosition] + encodedCube[newPosition + 1:]
     
     def _changePaletteReverse(self, encodedCube, newPosition, oldPosition):
-            return encodedCube[:oldPosition] + self.cube[newPosition] + encodedCube[oldPosition + 1:]
+            return encodedCube[:oldPosition] + self.get()[newPosition] + encodedCube[oldPosition + 1:]
     
     def _rotateFront(self, swapFunction):
-        encodedCube = self.cube
+        encodedCube = self.get()
         
         # top row of front face
         encodedCube = swapFunction(encodedCube, FTL, FBL)
@@ -117,7 +121,7 @@ class Cube:
         self._rotateFront(self._changePaletteReverse)
     
     def _rotateBack(self, swapFunction):
-        encodedCube = self.cube
+        encodedCube = self.get()
         
         # top row of back face
         encodedCube = swapFunction(encodedCube, BTL, BBL)
@@ -162,7 +166,7 @@ class Cube:
         self._rotateBack(self._changePaletteReverse)
     
     def _rotateLeft(self, swapFunction):
-        encodedCube = self.cube
+        encodedCube = self.get()
         
         # top row of left face
         encodedCube = swapFunction(encodedCube, LTL, LBL)
@@ -207,7 +211,7 @@ class Cube:
         self._rotateLeft(self._changePaletteReverse)
 
     def _rotateRight(self, swapFunction):
-        encodedCube = self.cube
+        encodedCube = self.get()
         
         # top row of right face
         encodedCube = swapFunction(encodedCube, RTL, RBL)
@@ -252,7 +256,7 @@ class Cube:
         self._rotateRight(self._changePaletteReverse)
 
     def _rotateUp(self, swapFunction):
-        encodedCube = self.cube
+        encodedCube = self.get()
         
         # top row of up face
         encodedCube = swapFunction(encodedCube, UTL, UBL)
@@ -308,7 +312,7 @@ class Cube:
     
     def print_row(self, left):
         for index in range(left, left + 3):
-            print(self.cube[index] + '\t', end='')
+            print(self.get()[index] + '\t', end='')
         print('\t', end='')
 
     def visualize(self):
