@@ -349,4 +349,4 @@ class Cube:
         self.print_row(48)
         print('\n\t\t\t\t', end='')
         self.print_row(51)
-        print('\n'
+        print('\n')
