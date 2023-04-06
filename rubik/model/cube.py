@@ -350,9 +350,3 @@ class Cube:
         print('\n\t\t\t\t', end='')
         self.print_row(51)
         print('\n')
-
-        
-        
-=======
-        self._rotateUp(self._changePaletteReverse)
->>>>>>> refs/heads/master
