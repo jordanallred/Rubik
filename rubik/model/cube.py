@@ -23,7 +23,7 @@ class Cube:
         
         for color in uniqueColors:
             if encodedCube.count(color) != NUM_ELEMENTS // NUM_FACES:
-                raise ValueError(f"Cube must have exactly {NUM_ELEMENTS // NUM_FACES} occurences of legal values.")
+                raise ValueError(f"Cube must have exactly {NUM_ELEMENTS // NUM_FACES} occurrences of legal values.")
                 
         if len([encodedCube[FMM], encodedCube[BMM], encodedCube[LMM], encodedCube[RMM], encodedCube[UMM], encodedCube[DMM]]) != len(set([encodedCube[FMM], encodedCube[BMM], encodedCube[LMM], encodedCube[RMM], encodedCube[UMM], encodedCube[DMM]])):
             raise ValueError("Cube must have unique centers.")
@@ -317,36 +317,36 @@ class Cube:
 
     def visualize(self):
         print('\t\t\t\t', end='')
-        self.print_row(36)
+        self.print_row(UTL)
         print('\n\t\t\t\t', end='')
-        self.print_row(39)
+        self.print_row(UML)
         print('\n\t\t\t\t', end='')
-        self.print_row(42)
+        self.print_row(UBL)
         print('\n')
                 
-        self.print_row(27)
-        self.print_row(0)
-        self.print_row(9)
-        self.print_row(18)
+        self.print_row(LTL)
+        self.print_row(FTL)
+        self.print_row(RTL)
+        self.print_row(BTL)
         
         print()
         
-        self.print_row(30)
-        self.print_row(3)
-        self.print_row(12)
-        self.print_row(21)
+        self.print_row(LML)
+        self.print_row(FML)
+        self.print_row(RML)
+        self.print_row(BML)
 
         print()
         
-        self.print_row(33)
-        self.print_row(6)
-        self.print_row(15)
-        self.print_row(24)
+        self.print_row(LBL)
+        self.print_row(FBL)
+        self.print_row(RBL)
+        self.print_row(BBL)
         
         print('\n\n\t\t\t\t', end='')
-        self.print_row(45)
+        self.print_row(DTL)
         print('\n\t\t\t\t', end='')
-        self.print_row(48)
+        self.print_row(DML)
         print('\n\t\t\t\t', end='')
-        self.print_row(51)
+        self.print_row(DBL)
         print('\n')
