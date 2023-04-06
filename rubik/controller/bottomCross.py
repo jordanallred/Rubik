@@ -4,6 +4,7 @@ from rubik.model.cube import Cube
 def solveBottomCross(theCube: Cube) -> str:
     daisySolution = createDaisy(theCube)
     bottomCrossSolution = createBottomCross(theCube)
+    
     return daisySolution + bottomCrossSolution
     
 def isDaisy(theCube: Cube):
