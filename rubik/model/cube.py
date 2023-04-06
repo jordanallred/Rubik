@@ -298,9 +298,6 @@ class Cube:
         self._rotateUp(self._changePalette)
     
     def _rotateUpCounterclockwise(self):
-<<<<<<< HEAD
-        self._rotateUp(self._changePaletteReverse)
-=======
         self._rotateUp(self._changePaletteReverse)
         
     def left_trigger(self, face):
@@ -352,5 +349,4 @@ class Cube:
         self.print_row(48)
         print('\n\t\t\t\t', end='')
         self.print_row(51)
-        print('\n')
->>>>>>> refs/heads/increment3
+        print('\n'
