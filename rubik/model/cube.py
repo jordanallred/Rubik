@@ -353,3 +353,6 @@ class Cube:
 
         
         
+=======
+        self._rotateUp(self._changePaletteReverse)
+>>>>>>> refs/heads/master
