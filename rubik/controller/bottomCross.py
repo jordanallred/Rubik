@@ -7,89 +7,125 @@ def solveBottomCross(theCube: Cube) -> str:
     return daisySolution + bottomCrossSolution
     
 def isDaisy(theCube: Cube):
-    bottomCrossColor = theCube.cube[DMM]
-    return theCube.cube[UTM] == bottomCrossColor and theCube.cube[UML] == bottomCrossColor and theCube.cube[UMR] == bottomCrossColor and theCube.cube[UBM] == bottomCrossColor
+    encodedCube = theCube.get()
+    bottomCrossColor = encodedCube[DMM]
+    return encodedCube[UTM] == bottomCrossColor and encodedCube[UML] == bottomCrossColor and encodedCube[UMR] == bottomCrossColor and encodedCube[UBM] == bottomCrossColor
+
+def create_middles(theCube: Cube, bottomCrossColor, solution):
+    encodedCube = theCube.get()
+    
+    if encodedCube[FTM] == bottomCrossColor or encodedCube[FBM] == bottomCrossColor:
+        theCube._rotateFrontClockwise()
+        solution += 'F'
+        encodedCube = theCube.get()
+        
+    if encodedCube[BTM] == bottomCrossColor or encodedCube[BBM] == bottomCrossColor:
+        theCube._rotateBackClockwise()
+        solution += 'B'
+        encodedCube = theCube.get()
+
+    if encodedCube[LTM] == bottomCrossColor or encodedCube[LBM] == bottomCrossColor:
+        theCube._rotateLeftClockwise()
+        solution += 'L'
+        encodedCube = theCube.get()
+
+    if encodedCube[RTM] == bottomCrossColor or encodedCube[RBM] == bottomCrossColor:
+        theCube._rotateRightClockwise()
+        solution += 'R'
+        encodedCube = theCube.get()
+        
+    return solution
+
+def check_middles(theCube, bottomCrossColor, solution):
+    encodedCube = theCube.get()
+    
+    if encodedCube[UTM] != bottomCrossColor:
+        if encodedCube[RMR] == bottomCrossColor or encodedCube[DBM] == bottomCrossColor or encodedCube[LML] == bottomCrossColor:
+            while encodedCube[UTM] != bottomCrossColor:
+                theCube._rotateBackClockwise()
+                solution += 'B'
+                encodedCube = theCube.get()
+    
+    if encodedCube[UMR] != bottomCrossColor:
+        if encodedCube[BML] == bottomCrossColor or encodedCube[DMR] == bottomCrossColor or encodedCube[FMR] == bottomCrossColor:
+            while encodedCube[UMR] != bottomCrossColor:
+                theCube._rotateRightClockwise()
+                solution += 'R'
+                encodedCube = theCube.get()
+        
+    if encodedCube[UBM] != bottomCrossColor:
+        if encodedCube[RML] == bottomCrossColor or encodedCube[DTM] == bottomCrossColor or encodedCube[LMR] == bottomCrossColor:
+            while encodedCube[UBM] != bottomCrossColor:
+                theCube._rotateFrontClockwise()
+                solution += 'F'
+                encodedCube = theCube.get()
+                
+    if encodedCube[UML] != bottomCrossColor:
+        if encodedCube[BMR] == bottomCrossColor or encodedCube[DML] == bottomCrossColor or encodedCube[FML] == bottomCrossColor:
+            while encodedCube[UML] != bottomCrossColor:
+                theCube._rotateLeftClockwise()
+                solution += 'L'
+                encodedCube = theCube.get()
+    
+    theCube._rotateUpClockwise()
+    solution += 'U'
+    
+    return solution
+    
+
 
 def createDaisy(theCube: Cube):
-    cubeCopy = Cube(theCube.cube)
-    bottomCrossColor = cubeCopy.cube[DMM]
+    encodedCube = theCube.get()
+    bottomCrossColor = encodedCube[DMM]
     solution = ''
     
-    while not isDaisy(cubeCopy):
-        if cubeCopy.cube[FTM] == bottomCrossColor or cubeCopy.cube[FBM] == bottomCrossColor:
-            cubeCopy._rotateFrontClockwise()
-            solution += 'F'
-            
-        if cubeCopy.cube[BTM] == bottomCrossColor or cubeCopy.cube[BBM] == bottomCrossColor:
-            cubeCopy._rotateBackClockwise()
-            solution += 'B'
-
-        if cubeCopy.cube[LTM] == bottomCrossColor or cubeCopy.cube[LBM] == bottomCrossColor:
-            cubeCopy._rotateLeftClockwise()
-            solution += 'L'
-
-        if cubeCopy.cube[RTM] == bottomCrossColor or cubeCopy.cube[RBM] == bottomCrossColor:
-            cubeCopy._rotateRightClockwise()
-            solution += 'R'
-            
-        if cubeCopy.cube[UTM] != bottomCrossColor:
-            if cubeCopy.cube[RMR] == bottomCrossColor or cubeCopy.cube[DBM] == bottomCrossColor or cubeCopy.cube[LML] == bottomCrossColor:
-                while cubeCopy.cube[UTM] != bottomCrossColor:
-                    cubeCopy._rotateBackClockwise()
-                    solution += 'B'
+    while not isDaisy(theCube):
+        solution = create_middles(theCube, bottomCrossColor, solution)
+        solution = check_middles(theCube, bottomCrossColor, solution)
         
-        if cubeCopy.cube[UMR] != bottomCrossColor:
-            if cubeCopy.cube[BML] == bottomCrossColor or cubeCopy.cube[DMR] == bottomCrossColor or cubeCopy.cube[FMR] == bottomCrossColor:
-                while cubeCopy.cube[UMR] != bottomCrossColor:
-                    cubeCopy._rotateRightClockwise()
-                    solution += 'R'
-            
-        if cubeCopy.cube[UBM] != bottomCrossColor:
-            if cubeCopy.cube[RML] == bottomCrossColor or cubeCopy.cube[DTM] == bottomCrossColor or cubeCopy.cube[LMR] == bottomCrossColor:
-                while cubeCopy.cube[UBM] != bottomCrossColor:
-                    cubeCopy._rotateFrontClockwise()
-                    solution += 'F'
-                    
-        if cubeCopy.cube[UML] != bottomCrossColor:
-            if cubeCopy.cube[BMR] == bottomCrossColor or cubeCopy.cube[DML] == bottomCrossColor or cubeCopy.cube[FML] == bottomCrossColor:
-                while cubeCopy.cube[UML] != bottomCrossColor:
-                    cubeCopy._rotateLeftClockwise()
-                    solution += 'L'
-        
-        cubeCopy._rotateUpClockwise()
-        solution += 'U'
     return solution
 
 def createBottomCross(theCube: Cube):
-    cubeCopy = Cube(theCube.cube)
+    encodedCube = theCube.get()    
     solution = ''
     
-    while cubeCopy.cube[FTM] != cubeCopy.cube[FMM]:
-        cubeCopy._rotateUpClockwise()
+    while encodedCube[FTM] != encodedCube[FMM] or encodedCube[UBM] != encodedCube[DMM]:
+        theCube._rotateUpClockwise()
         solution += 'U'
-    cubeCopy._rotateFrontClockwise()
-    cubeCopy._rotateFrontClockwise()
+        encodedCube = theCube.get()
+    theCube._rotateFrontClockwise()
+    theCube._rotateFrontClockwise()
     solution += 'FF'
+    encodedCube = theCube.get()    
     
-    while cubeCopy.cube[RTM] != cubeCopy.cube[RMM]:
-        cubeCopy._rotateUpClockwise()
+    
+    while encodedCube[RTM] != encodedCube[RMM] or encodedCube[UMR] != encodedCube[DMM]:
+        theCube._rotateUpClockwise()
         solution += 'U'
-    cubeCopy._rotateRightClockwise()
-    cubeCopy._rotateRightClockwise()
+        encodedCube = theCube.get()
+    theCube._rotateRightClockwise()
+    theCube._rotateRightClockwise()
     solution += 'RR'
+    encodedCube = theCube.get()    
 
-    while cubeCopy.cube[BTM] != cubeCopy.cube[BMM]:
-        cubeCopy._rotateUpClockwise()
+
+    while encodedCube[BTM] != encodedCube[BMM] or encodedCube[UTM] != encodedCube[DMM]:
+        theCube._rotateUpClockwise()
         solution += 'U'
-    cubeCopy._rotateBackClockwise()
-    cubeCopy._rotateBackClockwise()
+        encodedCube = theCube.get()
+    theCube._rotateBackClockwise()
+    theCube._rotateBackClockwise()
     solution += 'BB'
+    encodedCube = theCube.get()    
+
     
-    while cubeCopy.cube[LTM] != cubeCopy.cube[LMM]:
-        cubeCopy._rotateUpClockwise()
+    while encodedCube[LTM] != encodedCube[LMM] or encodedCube[UML] != encodedCube[DMM]:
+        theCube._rotateUpClockwise()
         solution += 'U'
-    cubeCopy._rotateLeftClockwise()
-    cubeCopy._rotateLeftClockwise()
+        encodedCube = theCube.get()
+    theCube._rotateLeftClockwise()
+    theCube._rotateLeftClockwise()
     solution += 'LL'
+    encodedCube = theCube.get()    
 
     return solution

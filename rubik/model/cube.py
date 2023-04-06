@@ -13,14 +13,18 @@ class Cube:
             if color not in uniqueColors:
                 uniqueColors.append(color)
         if len(uniqueColors) != NUM_FACES:
-            raise ValueError("Number of unique colors must be six.")
+            raise ValueError(f"Number of unique colors must be {NUM_FACES}.")
         
         if not encodedCube.isalnum():
             raise ValueError("Palette values must be alphanumeric.")
             
         if len(encodedCube) != NUM_ELEMENTS:
-            raise ValueError("Cube must have exactly 54 palette values.")
+            raise ValueError(f"Cube must have exactly {NUM_ELEMENTS} palette values.")
         
+        for color in uniqueColors:
+            if encodedCube.count(color) != NUM_ELEMENTS // NUM_FACES:
+                raise ValueError(f"Cube must have exactly {NUM_ELEMENTS // NUM_FACES} occurrences of legal values.")
+                
         if len([encodedCube[FMM], encodedCube[BMM], encodedCube[LMM], encodedCube[RMM], encodedCube[UMM], encodedCube[DMM]]) != len(set([encodedCube[FMM], encodedCube[BMM], encodedCube[LMM], encodedCube[RMM], encodedCube[UMM], encodedCube[DMM]])):
             raise ValueError("Cube must have unique centers.")
         
@@ -33,6 +37,7 @@ class Cube:
         
         while len(directions) > 0:
             if not VALID_DIRECTIONS.__contains__(directions[0]):
+                print(directions)
                 raise ValueError("Input contains invalid rotation direction.")
 
             if directions[0] == 'F':
@@ -65,13 +70,13 @@ class Cube:
         return self.cube
     
     def _changePalette(self, encodedCube, newPosition, oldPosition):
-            return encodedCube[:newPosition] + self.cube[oldPosition] + encodedCube[newPosition + 1:]
+            return encodedCube[:newPosition] + self.get()[oldPosition] + encodedCube[newPosition + 1:]
     
     def _changePaletteReverse(self, encodedCube, newPosition, oldPosition):
-            return encodedCube[:oldPosition] + self.cube[newPosition] + encodedCube[oldPosition + 1:]
+            return encodedCube[:oldPosition] + self.get()[newPosition] + encodedCube[oldPosition + 1:]
     
     def _rotateFront(self, swapFunction):
-        encodedCube = self.cube
+        encodedCube = self.get()
         
         # top row of front face
         encodedCube = swapFunction(encodedCube, FTL, FBL)
@@ -116,7 +121,7 @@ class Cube:
         self._rotateFront(self._changePaletteReverse)
     
     def _rotateBack(self, swapFunction):
-        encodedCube = self.cube
+        encodedCube = self.get()
         
         # top row of back face
         encodedCube = swapFunction(encodedCube, BTL, BBL)
@@ -161,7 +166,7 @@ class Cube:
         self._rotateBack(self._changePaletteReverse)
     
     def _rotateLeft(self, swapFunction):
-        encodedCube = self.cube
+        encodedCube = self.get()
         
         # top row of left face
         encodedCube = swapFunction(encodedCube, LTL, LBL)
@@ -206,7 +211,7 @@ class Cube:
         self._rotateLeft(self._changePaletteReverse)
 
     def _rotateRight(self, swapFunction):
-        encodedCube = self.cube
+        encodedCube = self.get()
         
         # top row of right face
         encodedCube = swapFunction(encodedCube, RTL, RBL)
@@ -251,7 +256,7 @@ class Cube:
         self._rotateRight(self._changePaletteReverse)
 
     def _rotateUp(self, swapFunction):
-        encodedCube = self.cube
+        encodedCube = self.get()
         
         # top row of up face
         encodedCube = swapFunction(encodedCube, UTL, UBL)
@@ -293,4 +298,59 @@ class Cube:
         self._rotateUp(self._changePalette)
     
     def _rotateUpCounterclockwise(self):
+<<<<<<< HEAD
         self._rotateUp(self._changePaletteReverse)
+=======
+        self._rotateUp(self._changePaletteReverse)
+        
+    def left_trigger(self, face):
+        rotations = face.left.letter.lower() + 'u' + face.left.letter.upper()
+        self.rotate(rotations)
+        return rotations
+
+    def right_trigger(self, face):
+        rotations = face.right.letter.upper() + 'U' + face.right.letter.lower()
+        self.rotate(rotations)
+        return rotations
+    
+    def print_row(self, left):
+        for index in range(left, left + 3):
+            print(self.get()[index] + '\t', end='')
+        print('\t', end='')
+
+    def visualize(self):
+        print('\t\t\t\t', end='')
+        self.print_row(36)
+        print('\n\t\t\t\t', end='')
+        self.print_row(39)
+        print('\n\t\t\t\t', end='')
+        self.print_row(42)
+        print('\n')
+                
+        self.print_row(27)
+        self.print_row(0)
+        self.print_row(9)
+        self.print_row(18)
+        
+        print()
+        
+        self.print_row(30)
+        self.print_row(3)
+        self.print_row(12)
+        self.print_row(21)
+
+        print()
+        
+        self.print_row(33)
+        self.print_row(6)
+        self.print_row(15)
+        self.print_row(24)
+        
+        print('\n\n\t\t\t\t', end='')
+        self.print_row(45)
+        print('\n\t\t\t\t', end='')
+        self.print_row(48)
+        print('\n\t\t\t\t', end='')
+        self.print_row(51)
+        print('\n')
+>>>>>>> refs/heads/increment3

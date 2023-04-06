@@ -1,6 +1,14 @@
+from dataclasses import dataclass
+
 '''
 Constants used across the microservice 
 '''
+
+@dataclass
+class Face:
+    left = None
+    right = None
+    letter: str
 
 #-----------------------------------
 #  Mapping of cube element positions to mnemonic names
@@ -80,3 +88,22 @@ DBR = 53
 NUM_ELEMENTS = 54
 NUM_FACES = 6
 VALID_DIRECTIONS = "FfBbLlRrUu"
+
+# Triggers
+FRONT = Face('f')
+RIGHT = Face('r')
+LEFT = Face('l')
+BACK = Face('b')
+
+FRONT.right = RIGHT
+FRONT.left = LEFT
+
+RIGHT.right = BACK
+RIGHT.left = FRONT
+
+LEFT.right = FRONT
+LEFT.left = BACK
+
+BACK.right = LEFT
+BACK.left = RIGHT
+
