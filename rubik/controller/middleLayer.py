@@ -15,18 +15,19 @@ def solveMiddleLayer(theCube: Cube) -> str:
         stuck = stuck or moveColors(theCube, BTM, UTM, BACK)
         stuck = stuck or moveColors(theCube, LTM, UML, LEFT)
         
-        if stuck:
-            theCube.right_trigger(FRONT)
+        if not stuck:
+            theCube.rotate('u')
+            solution += 'u'
             counter += 1
         else:
             counter = 0
-            
         if counter == 4:
             solution += theCube.right_trigger(FRONT)
             theCube.rotate('u')
             solution += 'u'
             theCube.left_trigger(RIGHT)
-
+            counter = 0
+        
         encodedCube = theCube.get()
         
     return solution
@@ -59,6 +60,8 @@ def moveColors(theCube: Cube, frontTopMiddle: int, topBottomMiddle: int, side: F
     encodedCube = theCube.get()
     
     if encodedCube[frontTopMiddle] == encodedCube[frontTopMiddle + 3]:
+        theCube.visualize()
+        print(encodedCube[topBottomMiddle], (frontTopMiddle + 3 + (NUM_ELEMENTS // NUM_FACES)) % (4 * (NUM_ELEMENTS // NUM_FACES)), encodedCube[(frontTopMiddle + 3 + (NUM_ELEMENTS // NUM_FACES)) % (4 * (NUM_ELEMENTS // NUM_FACES))])
         if encodedCube[topBottomMiddle] == encodedCube[(frontTopMiddle + 3 + (NUM_ELEMENTS // NUM_FACES)) % (4 * (NUM_ELEMENTS // NUM_FACES))]:
             theCube.rotate('U')
             solution += 'U'
@@ -68,7 +71,7 @@ def moveColors(theCube: Cube, frontTopMiddle: int, topBottomMiddle: int, side: F
             theCube.left_trigger(side.right)
             encodedCube = theCube.get()
             return True
-        if encodedCube[topBottomMiddle] == encodedCube[(frontTopMiddle + 3 + (NUM_ELEMENTS // NUM_FACES)) % (4 * (NUM_ELEMENTS // NUM_FACES))]:
+        if encodedCube[topBottomMiddle] == encodedCube[(frontTopMiddle + 3 - (NUM_ELEMENTS // NUM_FACES)) % (4 * (NUM_ELEMENTS // NUM_FACES))]:
             theCube.rotate('u')
             solution += 'u'
             solution += theCube.left_trigger(side)
@@ -77,4 +80,5 @@ def moveColors(theCube: Cube, frontTopMiddle: int, topBottomMiddle: int, side: F
             theCube.right_trigger(side.left)
             encodedCube = theCube.get()
             return True
-        return False
+    
+    return False
