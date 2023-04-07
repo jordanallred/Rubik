@@ -3,6 +3,20 @@ from rubik.model.cube import Cube
 
 solution = ''
 
+def rightTriggerFix(theCube: Cube, face: Face):
+    global solution
+    solution += theCube.right_trigger(face)
+    theCube.rotate('u')
+    solution += 'u'
+    theCube.left_trigger(face.right)    
+
+def leftTriggerFix(theCube: Cube, face: Face):
+    global solution
+    solution += theCube.left_trigger(face)
+    theCube.rotate('U')
+    solution += 'U'
+    theCube.right_trigger(face.left)
+
 def solveMiddleLayer(theCube: Cube) -> str:
     global solution
     encodedCube = theCube.get()
@@ -22,12 +36,10 @@ def solveMiddleLayer(theCube: Cube) -> str:
         else:
             counter = 0
         if counter == 4:
-            solution += theCube.right_trigger(FRONT)
-            theCube.rotate('u')
-            solution += 'u'
-            theCube.left_trigger(RIGHT)
-            counter = 0
+            resetMiddle(theCube)
         
+        print(stuck)
+        theCube.visualize()
         encodedCube = theCube.get()
         
     return solution
@@ -60,25 +72,40 @@ def moveColors(theCube: Cube, frontTopMiddle: int, topBottomMiddle: int, side: F
     encodedCube = theCube.get()
     
     if encodedCube[frontTopMiddle] == encodedCube[frontTopMiddle + 3]:
-        theCube.visualize()
-        print(encodedCube[topBottomMiddle], (frontTopMiddle + 3 + (NUM_ELEMENTS // NUM_FACES)) % (4 * (NUM_ELEMENTS // NUM_FACES)), encodedCube[(frontTopMiddle + 3 + (NUM_ELEMENTS // NUM_FACES)) % (4 * (NUM_ELEMENTS // NUM_FACES))])
         if encodedCube[topBottomMiddle] == encodedCube[(frontTopMiddle + 3 + (NUM_ELEMENTS // NUM_FACES)) % (4 * (NUM_ELEMENTS // NUM_FACES))]:
             theCube.rotate('U')
             solution += 'U'
-            solution += theCube.right_trigger(side)
-            theCube.rotate('u')
-            solution += 'u'
-            theCube.left_trigger(side.right)
-            encodedCube = theCube.get()
+            rightTriggerFix(theCube, side)
             return True
         if encodedCube[topBottomMiddle] == encodedCube[(frontTopMiddle + 3 - (NUM_ELEMENTS // NUM_FACES)) % (4 * (NUM_ELEMENTS // NUM_FACES))]:
             theCube.rotate('u')
             solution += 'u'
-            solution += theCube.left_trigger(side)
-            theCube.rotate('U')
-            solution += 'U'
-            theCube.right_trigger(side.left)
-            encodedCube = theCube.get()
+            leftTriggerFix(theCube, side)
             return True
     
     return False
+
+def resetMiddle(theCube: Cube):
+    global solution
+    encodedCube = theCube.get()
+    
+    if encodedCube[FML] != encodedCube[FMM]:
+        leftTriggerFix(theCube, FRONT)
+    elif encodedCube[FMR] != encodedCube[FMM]:
+        rightTriggerFix(theCube, FRONT)
+        
+    elif encodedCube[RML] != encodedCube[RMM]:
+        leftTriggerFix(theCube, RIGHT)
+    elif encodedCube[RMR] != encodedCube[RMM]:
+        rightTriggerFix(theCube, RIGHT)
+        
+    elif encodedCube[BML] != encodedCube[BMM]:
+        leftTriggerFix(theCube, BACK)
+    elif encodedCube[BMR] != encodedCube[BMM]:
+        rightTriggerFix(theCube, BACK)
+        
+    elif encodedCube[LML] != encodedCube[LMM]:
+        leftTriggerFix(theCube, LEFT)
+    elif encodedCube[LMR] != encodedCube[LMM]:
+        rightTriggerFix(theCube, LEFT)
+    
