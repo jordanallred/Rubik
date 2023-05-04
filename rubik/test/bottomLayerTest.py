@@ -76,3 +76,6 @@ class BottomLayerTest(TestCase):
                 
         encodedCube = cube.get()
         self.assertEqual(encodedCube[DBR], encodedCube[DMM])
+        
+        for i in range(10):
+            print(f"http://localhost:8080/rubik/solve?cube={create_cube().get()}")

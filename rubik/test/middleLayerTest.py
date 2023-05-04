@@ -6,7 +6,7 @@ from rubik.controller.middleLayer import *
 from rubik.model.constants import *
 from rubik.test.tools import create_cube
 
-class BottomLayerTest(TestCase):
+class MiddleLayerTest(TestCase):
     def test101_solve_solveFML(self):
         cube = create_cube()
         solveBottomCross(cube)    
