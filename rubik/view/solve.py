@@ -5,6 +5,8 @@ from rubik.controller.upFaceCross import solveUpCross
 from rubik.controller.upFaceSurface import solveUpSurface
 from rubik.controller.upperLayer import solveUpperLayer
 from rubik.model.cube import Cube
+import hashlib
+import random
 
 def solve(parms):
     """Return rotates needed to solve input cube"""
@@ -22,7 +24,14 @@ def solve(parms):
     rotations += solveUpperLayer(theCube)       #iteration 6
     
     result['solution'] = rotations
-    result['status'] = 'ok'    
-    result['integrity'] = ''                    #iteration 3
+    result['status'] = 'ok'  
+    
+    itemToTokenize = encodedCube + rotations + 'allrejr'
+    sha256hash = hashlib.sha256()
+    sha256hash.update(itemToTokenize.encode())
+    fullToken = sha256hash.hexdigest()
+    
+    index = random.randrange(len(fullToken) - 8)
+    result['integrity'] = fullToken[index: index + 8]   #iteration 3
                      
     return result

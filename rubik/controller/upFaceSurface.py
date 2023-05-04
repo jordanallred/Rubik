@@ -22,8 +22,6 @@ def solveUpSurface(theCube: Cube) -> str:
         theCube.rotate('RUrURuur')
         solution += 'RUrURuur'
         encodedCube = theCube.get()
-        theCube.visualize()
-        pass
     return solution
     
 def upSurfaceSolved(encodedCube) -> bool:
