@@ -26,6 +26,7 @@ class UpFaceSurfaceTest(TestCase):
         solveBottomLayer(cube)
         solveMiddleLayer(cube)
         solveUpCross(cube)
+        solveUpSurface(cube)
         
         encodedCube = cube.get()
         self.assertEqual(encodedCube[UMM], encodedCube[UTR])
@@ -36,7 +37,8 @@ class UpFaceSurfaceTest(TestCase):
         solveBottomLayer(cube)
         solveMiddleLayer(cube)
         solveUpCross(cube)
-        
+        solveUpSurface(cube)
+
         encodedCube = cube.get()
         self.assertEqual(encodedCube[UMM], encodedCube[UBL])
         
@@ -46,6 +48,7 @@ class UpFaceSurfaceTest(TestCase):
         solveBottomLayer(cube)
         solveMiddleLayer(cube)
         solveUpCross(cube)
+        solveUpSurface(cube)
         
         encodedCube = cube.get()
         self.assertEqual(encodedCube[UMM], encodedCube[UBR])
