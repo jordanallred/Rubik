@@ -38,8 +38,6 @@ def solveMiddleLayer(theCube: Cube) -> str:
         if counter == 4:
             resetMiddle(theCube)
         
-        print(stuck)
-        theCube.visualize()
         encodedCube = theCube.get()
         
     return solution
