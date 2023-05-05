@@ -1,2 +1,2 @@
-# SoftwareProcessRubik
-Spring 2023 Rubik Project Repository
+# Rubik
+A web app microservice that solves a Rubik's cube with integrity and authenticity checking
