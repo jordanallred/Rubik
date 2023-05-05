@@ -7,18 +7,53 @@ def solveUpperLayer(theCube: Cube) -> str:
     global solution
     
     encodedCube = theCube.get()
-    
-    solveCorners(encodedCube)
-    solveLayer(encodedCube)
+    solveCorners(theCube)
+    solveLayer(theCube)
 
 def solveCorners(theCube: Cube) -> str:
     global solution
     encodedCube = theCube.get()
     
     while not solvedCorners(encodedCube):
-        theCube.rotate('lURuLUrRUrURuur')
-        solution += 'lURuLUrRUrURuur'
-
+        corners = None
+        face = FRONT
+        if encodedCube[FTL] == encodedCube[FTR]:
+            corners = FTL
+            face = FRONT        
+        elif encodedCube[RTL] == encodedCube[RTR]:
+            corners = RTL
+            face = RIGHT
+        elif encodedCube[BTL] == encodedCube[BTR]:
+            corners = BTL
+            face = BACK
+        elif encodedCube[LTL] == encodedCube[LTR]:
+            corners = LTL
+            face = LEFT
+        
+        if corners is not None:
+            while encodedCube[corners] != encodedCube[corners + 4]:
+                theCube.rotate('u')
+                solution += 'u'
+                corners = corners + (NUM_ELEMENTS // NUM_FACES) % ((NUM_ELEMENTS // NUM_FACES) * 4)
+                face = face.right
+                encodedCube = theCube.get()
+        
+        face = face.right
+        faceRight = face.right.letter
+        faceLeft = face.left.letter
+        
+        rotation = faceLeft.lower() + 'U' + faceRight.upper() + 'u' + faceLeft.upper() + 'U' + faceRight.lower() + \
+                   faceRight.upper() + 'U' + faceRight.lower() + 'U' + faceRight.upper() + 'uu' + faceRight.lower()
+            
+        theCube.rotate(rotation)
+        solution += rotation
+        encodedCube = theCube.get()
+        
+    while encodedCube[FTL] != encodedCube[FMM]:
+        theCube.rotate('u')
+        solution += 'u'
+        encodedCube = theCube.get()
+        
 def solveLayer(theCube: Cube) -> str:
     global solution
     encodedCube = theCube.get()
@@ -37,8 +72,8 @@ def solveLayer(theCube: Cube) -> str:
             
         frontFace = solvedFace.right.right
         frontLetter = frontFace.letter
-        frontLeft = frontFace.left
-        frontRight = frontFace.right
+        frontLeft = frontFace.left.letter
+        frontRight = frontFace.right.letter
         rotation = frontLetter.upper() + frontLetter.upper() + 'U' + frontRight.lower() + frontLeft.upper() + \
                    frontLetter.upper() + frontLetter.upper() + frontLeft.lower() + frontRight.upper() + 'U' + \
                    frontLetter.upper() + frontLetter.upper()
