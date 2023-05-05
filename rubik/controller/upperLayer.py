@@ -9,6 +9,8 @@ def solveUpperLayer(theCube: Cube) -> str:
     encodedCube = theCube.get()
     solveCorners(theCube)
     solveLayer(theCube)
+    
+    return solution
 
 def solveCorners(theCube: Cube) -> str:
     global solution

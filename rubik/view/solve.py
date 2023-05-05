@@ -5,6 +5,7 @@ from rubik.controller.upFaceCross import solveUpCross
 from rubik.controller.upFaceSurface import solveUpSurface
 from rubik.controller.upperLayer import solveUpperLayer
 from rubik.model.cube import Cube
+from rubik.model.constants import *
 import hashlib
 import random
 
@@ -14,6 +15,8 @@ def solve(parms):
      
     encodedCube = parms.get('cube')
     theCube = Cube(encodedCube)
+    
+    verifyCube(theCube)
     
     rotations = ""
     rotations += solveBottomCross(theCube)      #iteration 2
@@ -35,3 +38,37 @@ def solve(parms):
     result['integrity'] = fullToken[index: index + 8]   #iteration 3
                      
     return result
+
+def verifyCube(theCube: Cube) -> bool:
+    colorMatrix = {}
+    colors = []
+    encodedCube = theCube.get()
+    
+    for panel in encodedCube:
+        if panel not in colors:
+            colors.append(panel)
+            colorMatrix[panel] = {}
+        
+    for color1 in colors:
+        for color2 in colors:
+            if color1 == color2:
+                continue
+            colorMatrix[color1][color2] = 0
+    
+    for panel in PANEL_LIST:
+        if panel.left is not None:
+            colorMatrix[encodedCube[panel.position]][encodedCube[panel.left.position]] += 1
+        if panel.right is not None:
+            colorMatrix[encodedCube[panel.position]][encodedCube[panel.right.position]] += 1
+        if panel.up is not None:
+            colorMatrix[encodedCube[panel.position]][encodedCube[panel.up.position]] += 1
+        if panel.down is not None:
+            colorMatrix[encodedCube[panel.position]][encodedCube[panel.down.position]] += 1
+    
+    for color1 in colors:
+        for color2 in colors:
+            if color1 == color2:
+                continue
+            if colorMatrix[color1][color2] != 0 and colorMatrix[color1][color2] != 3:
+                Exception("Unsolvable Cube") 
+            

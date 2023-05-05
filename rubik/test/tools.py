@@ -10,5 +10,5 @@ def create_cube():
         encodedCube += color * (NUM_ELEMENTS // NUM_FACES)
         colors.remove(color)
     cube = Cube(encodedCube)
-    cube.rotate(random.choices(list(VALID_DIRECTIONS), k=10))
+    # cube.rotate(random.choices(list(VALID_DIRECTIONS), k=10))
     return cube
