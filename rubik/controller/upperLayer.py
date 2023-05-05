@@ -12,7 +12,7 @@ def solveUpperLayer(theCube: Cube) -> str:
     solution += solveLayer(encodedCube)
 
 def solveCorners(encodedCube) -> str:
-    pass
+    ''
 
 def solveLayer(encodedCube) -> str:
-    pass
+    ''
